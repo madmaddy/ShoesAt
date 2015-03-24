@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1475B2C1AB0A8EC00D151B9 /* ViewControllerLoggedIn.m in Sources */ = {isa = PBXBuildFile; fileRef = A1475B2B1AB0A8EC00D151B9 /* ViewControllerLoggedIn.m */; };
+		A1475B2E1AB0A98500D151B9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1475B2D1AB0A98500D151B9 /* MapKit.framework */; };
+		A1475B311AB0AEEE00D151B9 /* ViewControllerAddTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = A1475B301AB0AEEE00D151B9 /* ViewControllerAddTrip.m */; };
+		A18761461AC1E82C00F8AAF8 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A18761451AC1E82C00F8AAF8 /* CustomCell.m */; };
+		A18761491AC1EAC600F8AAF8 /* dash2.png in Resources */ = {isa = PBXBuildFile; fileRef = A18761471AC1EAC600F8AAF8 /* dash2.png */; };
+		A187614A1AC1EAC600F8AAF8 /* dash1.png in Resources */ = {isa = PBXBuildFile; fileRef = A18761481AC1EAC600F8AAF8 /* dash1.png */; };
+		A187614C1AC1EB9D00F8AAF8 /* dash1rev.png in Resources */ = {isa = PBXBuildFile; fileRef = A187614B1AC1EB9D00F8AAF8 /* dash1rev.png */; };
+		A187614E1AC1F9E100F8AAF8 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A187614D1AC1F9E100F8AAF8 /* pin.png */; };
+		A18761501AC1FA3D00F8AAF8 /* pin2.png in Resources */ = {isa = PBXBuildFile; fileRef = A187614F1AC1FA3D00F8AAF8 /* pin2.png */; };
+		A18761531AC1FFF000F8AAF8 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A18761521AC1FFF000F8AAF8 /* DetailsViewController.m */; };
+		A18761551AC2150400F8AAF8 /* shoes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A18761541AC2150400F8AAF8 /* shoes.jpg */; };
 		A196DE661AADEFC600E39712 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A196DE651AADEFC600E39712 /* main.m */; };
 		A196DE691AADEFC600E39712 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A196DE681AADEFC600E39712 /* AppDelegate.m */; };
 		A196DE6C1AADEFC600E39712 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A196DE6B1AADEFC600E39712 /* ViewController.m */; };
@@ -27,6 +38,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A1475B2A1AB0A8EC00D151B9 /* ViewControllerLoggedIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerLoggedIn.h; sourceTree = "<group>"; };
+		A1475B2B1AB0A8EC00D151B9 /* ViewControllerLoggedIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLoggedIn.m; sourceTree = "<group>"; };
+		A1475B2D1AB0A98500D151B9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A1475B2F1AB0AEEE00D151B9 /* ViewControllerAddTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerAddTrip.h; sourceTree = "<group>"; };
+		A1475B301AB0AEEE00D151B9 /* ViewControllerAddTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerAddTrip.m; sourceTree = "<group>"; };
+		A18761441AC1E82C00F8AAF8 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		A18761451AC1E82C00F8AAF8 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		A18761471AC1EAC600F8AAF8 /* dash2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dash2.png; path = ../../dash2.png; sourceTree = "<group>"; };
+		A18761481AC1EAC600F8AAF8 /* dash1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dash1.png; path = ../../dash1.png; sourceTree = "<group>"; };
+		A187614B1AC1EB9D00F8AAF8 /* dash1rev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dash1rev.png; path = ../../dash1rev.png; sourceTree = "<group>"; };
+		A187614D1AC1F9E100F8AAF8 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin.png; path = ../../pin.png; sourceTree = "<group>"; };
+		A187614F1AC1FA3D00F8AAF8 /* pin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin2.png; path = ../pin2.png; sourceTree = "<group>"; };
+		A18761511AC1FFF000F8AAF8 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		A18761521AC1FFF000F8AAF8 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		A18761541AC2150400F8AAF8 /* shoes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shoes.jpg; path = ../shoes.jpg; sourceTree = "<group>"; };
 		A196DE601AADEFC600E39712 /* ShoesAt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoesAt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A196DE641AADEFC600E39712 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A196DE651AADEFC600E39712 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1475B2E1AB0A98500D151B9 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +90,15 @@
 		A196DE571AADEFC600E39712 = {
 			isa = PBXGroup;
 			children = (
+				A18761511AC1FFF000F8AAF8 /* DetailsViewController.h */,
+				A18761541AC2150400F8AAF8 /* shoes.jpg */,
+				A18761521AC1FFF000F8AAF8 /* DetailsViewController.m */,
+				A187614F1AC1FA3D00F8AAF8 /* pin2.png */,
+				A18761441AC1E82C00F8AAF8 /* CustomCell.h */,
+				A18761451AC1E82C00F8AAF8 /* CustomCell.m */,
+				A1475B2D1AB0A98500D151B9 /* MapKit.framework */,
+				A1475B2F1AB0AEEE00D151B9 /* ViewControllerAddTrip.h */,
+				A1475B301AB0AEEE00D151B9 /* ViewControllerAddTrip.m */,
 				A196DE621AADEFC600E39712 /* ShoesAt */,
 				A196DE7C1AADEFC600E39712 /* ShoesAtTests */,
 				A196DE611AADEFC600E39712 /* Products */,
@@ -86,6 +122,12 @@
 				A196DE6A1AADEFC600E39712 /* ViewController.h */,
 				A196DE6B1AADEFC600E39712 /* ViewController.m */,
 				A196DE6D1AADEFC600E39712 /* Main.storyboard */,
+				A187614D1AC1F9E100F8AAF8 /* pin.png */,
+				A187614B1AC1EB9D00F8AAF8 /* dash1rev.png */,
+				A18761471AC1EAC600F8AAF8 /* dash2.png */,
+				A18761481AC1EAC600F8AAF8 /* dash1.png */,
+				A1475B2A1AB0A8EC00D151B9 /* ViewControllerLoggedIn.h */,
+				A1475B2B1AB0A8EC00D151B9 /* ViewControllerLoggedIn.m */,
 				A196DE701AADEFC600E39712 /* Images.xcassets */,
 				A196DE721AADEFC600E39712 /* LaunchScreen.xib */,
 				A196DE631AADEFC600E39712 /* Supporting Files */,
@@ -200,8 +242,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A196DE6F1AADEFC600E39712 /* Main.storyboard in Resources */,
+				A18761551AC2150400F8AAF8 /* shoes.jpg in Resources */,
+				A187614C1AC1EB9D00F8AAF8 /* dash1rev.png in Resources */,
 				A196DE741AADEFC600E39712 /* LaunchScreen.xib in Resources */,
+				A187614E1AC1F9E100F8AAF8 /* pin.png in Resources */,
+				A18761501AC1FA3D00F8AAF8 /* pin2.png in Resources */,
+				A18761491AC1EAC600F8AAF8 /* dash2.png in Resources */,
 				A196DE711AADEFC600E39712 /* Images.xcassets in Resources */,
+				A187614A1AC1EAC600F8AAF8 /* dash1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +269,11 @@
 			files = (
 				A196DE6C1AADEFC600E39712 /* ViewController.m in Sources */,
 				A196DE691AADEFC600E39712 /* AppDelegate.m in Sources */,
+				A18761461AC1E82C00F8AAF8 /* CustomCell.m in Sources */,
 				A196DE661AADEFC600E39712 /* main.m in Sources */,
+				A18761531AC1FFF000F8AAF8 /* DetailsViewController.m in Sources */,
+				A1475B311AB0AEEE00D151B9 /* ViewControllerAddTrip.m in Sources */,
+				A1475B2C1AB0A8EC00D151B9 /* ViewControllerLoggedIn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +397,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/bogdantudor/Downloads/parse-library-1",
+				);
 				INFOPLIST_FILE = ShoesAt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -355,7 +413,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/bogdantudor/Downloads/parse-library-1",
+				);
 				INFOPLIST_FILE = ShoesAt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -414,6 +478,7 @@
 				A196DE851AADEFC600E39712 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A196DE861AADEFC600E39712 /* Build configuration list for PBXNativeTarget "ShoesAtTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +487,7 @@
 				A196DE881AADEFC600E39712 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

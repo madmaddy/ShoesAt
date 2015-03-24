@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UITextField *userFiedl;
+@property (strong, nonatomic) IBOutlet UITextField *passFiedl;
+@property (strong, nonatomic) IBOutlet UIButton *signInBtn;
 
 
 @end
