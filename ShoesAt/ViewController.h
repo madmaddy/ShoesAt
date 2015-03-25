@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *userFiedl;
 @property (strong, nonatomic) IBOutlet UITextField *passFiedl;
 @property (strong, nonatomic) IBOutlet UIButton *signInBtn;
+@property (strong, nonatomic) IBOutlet UIView *grayView;
 
 
 @end

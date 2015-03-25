@@ -17,6 +17,9 @@
 - (IBAction)addTrip:(id)sender {
       [self performSegueWithIdentifier:@"addTrip" sender:self];
 }
+- (IBAction)goToTrips:(id)sender {
+    [self performSegueWithIdentifier:@"trips" sender:self];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     

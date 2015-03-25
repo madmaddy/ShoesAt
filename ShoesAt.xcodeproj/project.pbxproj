@@ -25,6 +25,14 @@
 		A196DE711AADEFC600E39712 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A196DE701AADEFC600E39712 /* Images.xcassets */; };
 		A196DE741AADEFC600E39712 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A196DE721AADEFC600E39712 /* LaunchScreen.xib */; };
 		A196DE801AADEFC600E39712 /* ShoesAtTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A196DE7F1AADEFC600E39712 /* ShoesAtTests.m */; };
+		A1A5164B1AC2AD4200B3498A /* shoeb.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A5164A1AC2AD4200B3498A /* shoeb.png */; };
+		A1A5164F1AC2AEBD00B3498A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A5164E1AC2AEBD00B3498A /* FacebookSDK.framework */; };
+		A1A516511AC2B29500B3498A /* poza-buton.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A516501AC2B29500B3498A /* poza-buton.png */; };
+		A1A516531AC2B62000B3498A /* worldcitiespop.txt in Resources */ = {isa = PBXBuildFile; fileRef = A1A516521AC2B62000B3498A /* worldcitiespop.txt */; };
+		A1A516551AC2BA8D00B3498A /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = A1A516541AC2BA8D00B3498A /* File.txt */; };
+		A1A516581AC306BB00B3498A /* ViewControllerTrips.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A516571AC306BB00B3498A /* ViewControllerTrips.m */; };
+		A1A5165B1AC3083700B3498A /* ViewControllerLogOut.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A5165A1AC3083700B3498A /* ViewControllerLogOut.m */; };
+		A1A5165E1AC314BC00B3498A /* CollectionViewCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A5165D1AC314BC00B3498A /* CollectionViewCustomCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +74,17 @@
 		A196DE791AADEFC600E39712 /* ShoesAtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoesAtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A196DE7E1AADEFC600E39712 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A196DE7F1AADEFC600E39712 /* ShoesAtTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShoesAtTests.m; sourceTree = "<group>"; };
+		A1A5164A1AC2AD4200B3498A /* shoeb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shoeb.png; path = ../../shoeb.png; sourceTree = "<group>"; };
+		A1A5164E1AC2AEBD00B3498A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		A1A516501AC2B29500B3498A /* poza-buton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "poza-buton.png"; path = "../poza-buton.png"; sourceTree = "<group>"; };
+		A1A516521AC2B62000B3498A /* worldcitiespop.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = worldcitiespop.txt; path = ../../Downloads/worldcitiespop.txt; sourceTree = "<group>"; };
+		A1A516541AC2BA8D00B3498A /* File.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
+		A1A516561AC306BB00B3498A /* ViewControllerTrips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerTrips.h; sourceTree = "<group>"; };
+		A1A516571AC306BB00B3498A /* ViewControllerTrips.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerTrips.m; sourceTree = "<group>"; };
+		A1A516591AC3083700B3498A /* ViewControllerLogOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerLogOut.h; sourceTree = "<group>"; };
+		A1A5165A1AC3083700B3498A /* ViewControllerLogOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLogOut.m; sourceTree = "<group>"; };
+		A1A5165C1AC314BC00B3498A /* CollectionViewCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCustomCell.h; sourceTree = "<group>"; };
+		A1A5165D1AC314BC00B3498A /* CollectionViewCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCustomCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1475B2E1AB0A98500D151B9 /* MapKit.framework in Frameworks */,
+				A1A5164F1AC2AEBD00B3498A /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +110,16 @@
 		A196DE571AADEFC600E39712 = {
 			isa = PBXGroup;
 			children = (
+				A1A5165C1AC314BC00B3498A /* CollectionViewCustomCell.h */,
+				A1A5165D1AC314BC00B3498A /* CollectionViewCustomCell.m */,
+				A1A516561AC306BB00B3498A /* ViewControllerTrips.h */,
+				A1A516571AC306BB00B3498A /* ViewControllerTrips.m */,
+				A1A516591AC3083700B3498A /* ViewControllerLogOut.h */,
+				A1A5165A1AC3083700B3498A /* ViewControllerLogOut.m */,
+				A1A516521AC2B62000B3498A /* worldcitiespop.txt */,
+				A1A516541AC2BA8D00B3498A /* File.txt */,
+				A1A516501AC2B29500B3498A /* poza-buton.png */,
+				A1A5164E1AC2AEBD00B3498A /* FacebookSDK.framework */,
 				A18761511AC1FFF000F8AAF8 /* DetailsViewController.h */,
 				A18761541AC2150400F8AAF8 /* shoes.jpg */,
 				A18761521AC1FFF000F8AAF8 /* DetailsViewController.m */,
@@ -122,6 +152,7 @@
 				A196DE6A1AADEFC600E39712 /* ViewController.h */,
 				A196DE6B1AADEFC600E39712 /* ViewController.m */,
 				A196DE6D1AADEFC600E39712 /* Main.storyboard */,
+				A1A5164A1AC2AD4200B3498A /* shoeb.png */,
 				A187614D1AC1F9E100F8AAF8 /* pin.png */,
 				A187614B1AC1EB9D00F8AAF8 /* dash1rev.png */,
 				A18761471AC1EAC600F8AAF8 /* dash2.png */,
@@ -241,13 +272,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A516511AC2B29500B3498A /* poza-buton.png in Resources */,
 				A196DE6F1AADEFC600E39712 /* Main.storyboard in Resources */,
 				A18761551AC2150400F8AAF8 /* shoes.jpg in Resources */,
 				A187614C1AC1EB9D00F8AAF8 /* dash1rev.png in Resources */,
+				A1A516531AC2B62000B3498A /* worldcitiespop.txt in Resources */,
+				A1A5164B1AC2AD4200B3498A /* shoeb.png in Resources */,
 				A196DE741AADEFC600E39712 /* LaunchScreen.xib in Resources */,
 				A187614E1AC1F9E100F8AAF8 /* pin.png in Resources */,
 				A18761501AC1FA3D00F8AAF8 /* pin2.png in Resources */,
 				A18761491AC1EAC600F8AAF8 /* dash2.png in Resources */,
+				A1A516551AC2BA8D00B3498A /* File.txt in Resources */,
 				A196DE711AADEFC600E39712 /* Images.xcassets in Resources */,
 				A187614A1AC1EAC600F8AAF8 /* dash1.png in Resources */,
 			);
@@ -268,10 +303,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A196DE6C1AADEFC600E39712 /* ViewController.m in Sources */,
+				A1A516581AC306BB00B3498A /* ViewControllerTrips.m in Sources */,
 				A196DE691AADEFC600E39712 /* AppDelegate.m in Sources */,
 				A18761461AC1E82C00F8AAF8 /* CustomCell.m in Sources */,
+				A1A5165B1AC3083700B3498A /* ViewControllerLogOut.m in Sources */,
 				A196DE661AADEFC600E39712 /* main.m in Sources */,
 				A18761531AC1FFF000F8AAF8 /* DetailsViewController.m in Sources */,
+				A1A5165E1AC314BC00B3498A /* CollectionViewCustomCell.m in Sources */,
 				A1475B311AB0AEEE00D151B9 /* ViewControllerAddTrip.m in Sources */,
 				A1475B2C1AB0A8EC00D151B9 /* ViewControllerLoggedIn.m in Sources */,
 			);
@@ -401,6 +439,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/bogdantudor/Downloads/parse-library-1",
+					/Users/bogdantudor/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = ShoesAt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -417,6 +456,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/bogdantudor/Downloads/parse-library-1",
+					/Users/bogdantudor/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = ShoesAt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;

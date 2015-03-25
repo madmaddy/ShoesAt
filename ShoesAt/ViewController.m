@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import "ViewControllerLoggedIn.h"
-
+#import <QuartzCore/QuartzCore.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface ViewController ()
 
@@ -19,9 +20,33 @@
 @synthesize userFiedl;
 @synthesize passFiedl;
 @synthesize signInBtn;
+@synthesize grayView;
+
+
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
+    NSLog(@"email address %@",[user objectForKey:@"email"]);
+    NSLog(@"Token Return %@",[FBSession activeSession].accessTokenData);
+    [self performSegueWithIdentifier:@"profile" sender:self];
+
+   }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    CALayer *layer = self.grayView.layer;
+    [layer setCornerRadius:30.0f];
+    
+    // border
+    [layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [layer setBorderWidth:1.5f];
+    
+    // drop shadow
+    [layer setShadowColor:[UIColor blackColor].CGColor];
+    [layer setShadowOpacity:0.5];
+    [layer setShadowRadius:2.0];
+    [layer setShadowOffset:CGSizeMake(1.0, 1.0)];
+    
     // Do any additional setup after loading the view, typically from a nib.
    // UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, 1)];
    // lineView.backgroundColor = [UIColor blackColor];
@@ -30,6 +55,11 @@
     PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
     testObject[@"foo"] = @"bar";
     [testObject saveInBackground];*/
+    
+    FBLoginView *loginView = [[FBLoginView alloc] init];
+    loginView.frame = CGRectMake(50, 420, loginView.frame.size.width, loginView.frame.size.height);
+   // loginView.center = self.view.center;
+    [self.view addSubview:loginView];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

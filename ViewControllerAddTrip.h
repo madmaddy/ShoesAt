@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewControllerAddTrip : UIViewController <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface ViewControllerAddTrip : UIViewController <UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UIImagePickerControllerDelegate>
+{
+    UIImagePickerController *picker;
+}
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UITableView *yourTable;
-@property (nonatomic, strong) NSArray *tableData;
+@property (nonatomic, strong) NSMutableArray *tableData;
+@property (strong, nonatomic) IBOutlet UILabel *destination;
+@property (strong, nonatomic) IBOutlet UILabel *visitedLabel;
+@property (strong, nonatomic) IBOutlet UILabel *andLabel;
+@property (strong, nonatomic) IBOutlet UITextField *dscriptionField;
+@property (strong, nonatomic) IBOutlet UIButton *addPicBtn;
+
 @property (nonatomic, strong) NSMutableArray *searchResult;
 @end
