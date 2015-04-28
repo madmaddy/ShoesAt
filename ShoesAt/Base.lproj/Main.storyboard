@@ -212,6 +212,7 @@
                     <connections>
                         <outlet property="addTripBtn" destination="VLG-M4-zCn" id="IaS-zk-1Id"/>
                         <outlet property="tableViewTrips" destination="Lbv-1a-4cb" id="9Uj-AJ-iYH"/>
+                        <segue destination="JEM-2s-WT1" kind="modal" identifier="details" id="uo4-H9-ghe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRa-eH-nyM" userLabel="First Responder" sceneMemberID="firstResponder"/>
