@@ -8,10 +8,12 @@
 
 #import "DetailsViewController.h"
 #import "ViewControllerLoggedIn.h"
+#import <Parse/Parse.h>
 
 @implementation DetailsViewController
 {
     CLLocationManager *locationManager;
+    NSMutableArray *imgs;
 }
 @synthesize  scr;
 @synthesize viewBackOfScroll;
@@ -20,24 +22,22 @@
 @synthesize mapView;
 @synthesize back;
 @synthesize textView;
+@synthesize tripImage;
+@synthesize destination;
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    NSMutableArray *imgs=[NSMutableArray  arrayWithObjects:
-                           
-                            [UIImage imageNamed: @"pin.png"],
-                            [UIImage imageNamed: @"pin2.png"],
-                            [UIImage imageNamed: @"dash1.png"],
-                            [UIImage imageNamed: @"dash2.png"],nil];
-   
-    [imgs addObject:[UIImage imageNamed:@"pin.png"]];
-    [imgs addObject:[UIImage imageNamed:@"pin2.png"]];
-    [imgs addObject:[UIImage imageNamed:@"dash1.png"]];
-    [imgs addObject:[UIImage imageNamed:@"dash2.png"]];
     
-    textView.text = [[objects objectAtIndex:selectedRow] valueForKey:@"tripDetails"];
+    PFFile *imageFile = [[objects objectAtIndex:selectedRow] valueForKey:@"picture1"];
+    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+            tripImage.image = [UIImage imageWithData:data];}
+    }];
    
+    textView.text = [[objects objectAtIndex:selectedRow] valueForKey:@"tripDetails"];
+    destination.text = [[objects objectAtIndex:selectedRow] valueForKey:@"country"];
+   /*
     for(int i=0;i<imgs.count;i++)
     {
         CGRect frame;
@@ -58,6 +58,8 @@
     shLayer4.shadowColor = [[UIColor grayColor] CGColor];
     shLayer4.shadowRadius = 2.0f;
     shLayer4.shadowOpacity = 0.80f;
+    
+    */
     
     
     CLLocationCoordinate2D location;

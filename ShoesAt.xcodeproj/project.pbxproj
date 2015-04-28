@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A11C37821AF0443D003EBBBC /* DetailsOthersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11C37811AF0443D003EBBBC /* DetailsOthersViewController.m */; };
 		A125139D1ADFE70800C2F74D /* worldcitiespop.txt in Resources */ = {isa = PBXBuildFile; fileRef = A125139C1ADFE70800C2F74D /* worldcitiespop.txt */; };
 		A12513AD1ADFE84E00C2F74D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12513AC1ADFE84E00C2F74D /* AudioToolbox.framework */; };
 		A12513AF1ADFE85900C2F74D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12513AE1ADFE85900C2F74D /* CFNetwork.framework */; };
@@ -62,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A11C37801AF0443D003EBBBC /* DetailsOthersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsOthersViewController.h; sourceTree = "<group>"; };
+		A11C37811AF0443D003EBBBC /* DetailsOthersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsOthersViewController.m; sourceTree = "<group>"; };
 		A125139C1ADFE70800C2F74D /* worldcitiespop.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = worldcitiespop.txt; sourceTree = "<group>"; };
 		A125139E1ADFE80C00C2F74D /* libCTWakeCommandParserDynamic.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libCTWakeCommandParserDynamic.dylib; path = usr/lib/libCTWakeCommandParserDynamic.dylib; sourceTree = SDKROOT; };
 		A12513AC1ADFE84E00C2F74D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -160,6 +163,8 @@
 		A196DE571AADEFC600E39712 = {
 			isa = PBXGroup;
 			children = (
+				A11C37801AF0443D003EBBBC /* DetailsOthersViewController.h */,
+				A11C37811AF0443D003EBBBC /* DetailsOthersViewController.m */,
 				A18FAE9C1AEFDCF5008CCDC9 /* qmark.png */,
 				A12513C21ADFE9FA00C2F74D /* Parse.framework */,
 				A12513C31ADFE9FA00C2F74D /* ParseCrashReporting.framework */,
@@ -377,6 +382,7 @@
 				A18761461AC1E82C00F8AAF8 /* CustomCell.m in Sources */,
 				A1A5165B1AC3083700B3498A /* ViewControllerLogOut.m in Sources */,
 				A196DE661AADEFC600E39712 /* main.m in Sources */,
+				A11C37821AF0443D003EBBBC /* DetailsOthersViewController.m in Sources */,
 				A18761531AC1FFF000F8AAF8 /* DetailsViewController.m in Sources */,
 				A1A5165E1AC314BC00B3498A /* CollectionViewCustomCell.m in Sources */,
 				A1475B311AB0AEEE00D151B9 /* ViewControllerAddTrip.m in Sources */,

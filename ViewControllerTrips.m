@@ -8,20 +8,32 @@
 
 #import "ViewControllerTrips.h"
 #import "CollectionViewCustomCell.h"
+#import "ViewController.h"
+#import "ViewControllerLoggedIn.h"
+#import <Parse/Parse.h>
 
-@implementation ViewControllerTrips
+@implementation ViewControllerTrips{
+    NSMutableArray *objectsAll;
+    NSString *idForSelectedCell;
+}
 - (IBAction)backToMyProfile:(id)sender {
-   [self performSegueWithIdentifier:@"backToProfile" sender:self];
+   [self performSegueWithIdentifier:@"backFromTripsToProfile" sender:self];
 }
 
 -(void)viewDidLoad
 {
-    tripsArray = [NSArray arrayWithObjects:@"pin.png",@"pin2.png", @"dash1.png", @"dash2.png", nil];
-    NSLog(@"%lu", (unsigned long)tripsArray.count);
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"trip"];
+    objects= [query findObjects];
+    
+    NSLog(@"obj:%@", objects);
+    
+   
+    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return tripsArray.count;
+    return objects.count;
 }
 
 
@@ -29,10 +41,23 @@
     static NSString *identifier = @"CollCell";
     
     CollectionViewCustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
-    cell.cellImage.image = [UIImage imageNamed:[tripsArray objectAtIndex:indexPath.row]];
-    
+    PFFile *imageFile = [[objects objectAtIndex:indexPath.row] valueForKey:@"picture1"];
+    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+            cell.cellImage.image = [UIImage imageWithData:data];}
+    }];
+
+    cell.cellLabel.text = [NSString stringWithFormat:@"%@\nby %@",[[objects objectAtIndex:indexPath.row] valueForKey:@"country"],[[objects objectAtIndex:indexPath.row] valueForKey:@"username"] ];
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+  
+    
+    idForSelectedCell = [[objects objectAtIndex:indexPath.row] valueForKey:@"objectId"];
+    NSLog(@"id:%@", idForSelectedCell);
+    
+    [self performSegueWithIdentifier:@"detailsOthers" sender:self];
+    
+}
 @end

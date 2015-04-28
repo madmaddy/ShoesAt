@@ -14,6 +14,7 @@
 @implementation ViewControllerAddTrip {
     NSMutableArray *youArray;
     NSArray* items;
+    PFFile *imageFile;
 }
 
 @synthesize searchBar;
@@ -25,6 +26,7 @@
 @synthesize andLabel;
 @synthesize dsriptionField;
 @synthesize addPicBtn;
+@synthesize photoView;
 
 
 -(void)viewDidLoad
@@ -157,16 +159,39 @@
 
 - (IBAction)saveTripClicked:(id)sender {
     NSString *fullTextForTrip = [NSString stringWithFormat:@"I visited %@ and it was %@", destination.text, dsriptionField.text];
-   
+    // Convert to JPEG with 50% quality
+    NSData* data = UIImageJPEGRepresentation(photoView.image, 0.5f);
+    imageFile = [PFFile fileWithName:@"Image.jpg" data:data];
+    
+    // Save the image to Parse
+    
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            // The image has now been uploaded to Parse. Associate it with a new object
+            PFObject* newPhotoObject = [PFObject objectWithClassName:@"PhotoObject"];
+            [newPhotoObject setObject:imageFile forKey:@"image"];
+            
+            [newPhotoObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    NSLog(@"Saved");
+                }
+                else{
+                    // Error
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+        }
+    }];
     PFObject *trip = [PFObject objectWithClassName:@"trip"];
     trip[@"username"] = usernameGlobal;
     trip[@"tripDetails"] = fullTextForTrip;
     trip[@"country"] = destination.text;
+    trip[@"picture1"] = imageFile;
    
     [trip saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"saved");
-           [self performSegueWithIdentifier:@"goBackToProfile" sender:self];
+           [self performSegueWithIdentifier:@"backFromAddTripToProfile" sender:self];
 
         } else {
             NSLog(@"error:%@", error.description);
@@ -186,32 +211,14 @@
       [self performSegueWithIdentifier:@"backToProfile" sender:self];
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image2 editingInfo:(NSDictionary *)editingInfo
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+   
     
-    /*
-    photoExists = 1;
-    
-    long long date = [[NSDate date] timeIntervalSince1970]*1000;
-    //NSLog(@"Date:%lld",date);
-    
-    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    pngFilePath = [NSString stringWithFormat:@"%@/%lld.jpeg",docDir, date];
-    pngToSend = [NSString stringWithFormat:@"%lld.jpeg", date];
-    NSLog(@"picPath:%@", pngFilePath);
-    
-    photoWasTaken = [editingInfo objectForKey:UIImagePickerControllerOriginalImage];
-    
-    dataToSend = UIImageJPEGRepresentation(image2, 0.7);
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
-    NSString *filePath = [documentsPath stringByAppendingPathComponent:pngToSend]; //Add the file name
-    [dataToSend writeToFile:filePath atomically:YES]; //Write the file
-    myPic.image = [UIImage imageWithData:dataToSend];
-     */
-    
+    photoView.image = image;
+    NSLog(@"picked");
+    //[self dismissViewControllerAnimated:YES completion:NULL];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -224,7 +231,7 @@
 {
     
     picker = [[UIImagePickerController alloc]init];
-    //picker.delegate = self;
+    picker.delegate = self;
     [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
     [self presentViewController:picker animated:YES completion:NULL];
 }
@@ -233,7 +240,7 @@
 {
     
     picker = [[UIImagePickerController alloc]init];
-    //picker.delegate = self;
+    picker.delegate = self;
     [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [self presentViewController:picker animated:YES completion:NULL];
 }

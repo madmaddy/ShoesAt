@@ -12,6 +12,7 @@
 
 @synthesize curvedImage;
 @synthesize pinTrip;
+@synthesize photoFromTrip;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

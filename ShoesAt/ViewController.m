@@ -55,7 +55,9 @@
     PFUser *currentUser = [PFUser currentUser];
     usernameGlobal = currentUser.username;
     
-    if (currentUser) {
+    NSString *classCurrent = [NSString stringWithFormat:@"%@", self.presentingViewController.class];
+    
+    if (currentUser && ![classCurrent isEqualToString:@"ViewControllerLoggedIn"]) {
         
       [self performSegueWithIdentifier:@"profile" sender:self];
     } else {

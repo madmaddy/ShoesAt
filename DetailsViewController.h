@@ -20,4 +20,8 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *back;
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 
+@property (strong, nonatomic) IBOutlet UIImageView *tripImage;
+@property (strong, nonatomic) IBOutlet UILabel *destination;
+
+
 @end

@@ -60,10 +60,26 @@
          [cell.title setFrame:CGRectMake(cell.title.frame.origin.x, 10.0, cell.title.frame.size.width,cell.title.frame.size.width)];
         cell.pinTrip.image = [UIImage imageNamed:@"pin.png"];
         cell.title.text = [NSString stringWithFormat:@"My trip to %@", [[objects objectAtIndex:indexPath.row] valueForKey:@"country"]];
+        
+        PFFile *imageFile = [[objects objectAtIndex:indexPath.row] objectForKey:@"picture1"];
+        
+       
+        [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (!error) {
+                cell.photoFromTrip.image = [UIImage imageWithData:data];}
+        }];
+        
     }else if (indexPath.row %2 == 1 && indexPath.row < objects.count) {
         cell.curvedImage.image = [UIImage imageNamed:@"dash1.png"];
         cell.pinTrip.image = [UIImage imageNamed:@"pin.png"];
         cell.title.text = [NSString stringWithFormat:@"My trip to %@", [[objects objectAtIndex:indexPath.row] valueForKey:@"country"]];
+        PFFile *imageFile = [[objects objectAtIndex:indexPath.row] objectForKey:@"picture1"];
+        
+        
+        [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (!error) {
+                cell.photoFromTrip.image = [UIImage imageWithData:data];}
+        }];
     }
     
     
@@ -76,7 +92,7 @@
             //cell.curvedImage.image = [UIImage imageNamed:@"dash1.png"];
             cell.pinTrip.image = [UIImage imageNamed:@"qmark.png"];
             cell.title.text = @"Where to now?";
-            
+          
         }
     }
     

@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *pinTrip;
 @property (strong, nonatomic) IBOutlet UIButton *detailButton;
 @property (strong, nonatomic) IBOutlet UILabel *title;
+@property (strong, nonatomic) IBOutlet UIImageView *photoFromTrip;
 
 @end

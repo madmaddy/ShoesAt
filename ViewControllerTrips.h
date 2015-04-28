@@ -10,7 +10,9 @@
 
 @interface ViewControllerTrips : UIViewController< UICollectionViewDelegate, UICollectionViewDataSource>
 {
-    NSArray *tripsArray;
+    NSMutableArray *tripsArray;
+    NSMutableArray *countriesArray;
+    NSMutableArray *usersArray;
 }
 
 @property (strong, nonatomic) IBOutlet UICollectionView *tripsCollectionView;
