@@ -111,7 +111,7 @@
                  [info setObject:passFiedl.text forKey:@"password"];
                  [info setObject:emailFiedl.text forKey:@"email"];
             
-                // [self performSegueWithIdentifier:@"goToProfile" sender:self];
+                 [self performSegueWithIdentifier:@"goToProfile" sender:self];
             } else {
                 NSString *errorString = [error userInfo][@"error"];
                 NSLog(@"%@", errorString);
