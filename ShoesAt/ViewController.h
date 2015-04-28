@@ -13,7 +13,12 @@
 @property (strong, nonatomic) IBOutlet UITextField *passFiedl;
 @property (strong, nonatomic) IBOutlet UIButton *signInBtn;
 @property (strong, nonatomic) IBOutlet UIView *grayView;
+@property (strong, nonatomic) IBOutlet UITextField *emailFiedl;
+- (IBAction)loginClicked:(id)sender;
 
 
 @end
 
+NSString *usernameGlobal;
+NSArray *objects;
+int selectedRow;

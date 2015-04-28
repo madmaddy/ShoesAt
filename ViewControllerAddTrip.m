@@ -7,6 +7,8 @@
 //
 
 #import "ViewControllerAddTrip.h"
+#import "ViewController.h"
+#import <Parse/Parse.h>
 
 
 @implementation ViewControllerAddTrip {
@@ -126,12 +128,31 @@
         [self.searchBar setPlaceholder:@"Search for a country"];
         //[searchBar setShowsCancelButton:NO animated:YES];
        searchBar.text = @"";
+       
     } else {
         // search results table view
             NSLog(@"ceva:%@", [items objectAtIndex:indexPath.row]);
     }
     
     
+}
+- (IBAction)saveTripClicked:(id)sender {
+    NSString *fullTextForTrip = [NSString stringWithFormat:@"I visited %@ and it was %@", destination.text, dscriptionField.text];
+   
+    PFObject *trip = [PFObject objectWithClassName:@"trip"];
+    trip[@"username"] = usernameGlobal;
+    trip[@"tripDetails"] = fullTextForTrip;
+    trip[@"country"] = destination.text;
+   
+    [trip saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"saved");
+           // [self performSegueWithIdentifier:@"backToProfile" sender:self];
+
+        } else {
+            NSLog(@"error:%@", error.description);
+        }
+    }];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
@@ -143,7 +164,7 @@
 }
 
 - (IBAction)goBackToProfile:(id)sender {
-      [self performSegueWithIdentifier:@"backToProfile" sender:self];
+     // [self performSegueWithIdentifier:@"backToProfile" sender:self];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image2 editingInfo:(NSDictionary *)editingInfo

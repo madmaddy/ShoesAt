@@ -18,5 +18,6 @@
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *back;
+@property (strong, nonatomic) IBOutlet UITextView *textView;
 
 @end

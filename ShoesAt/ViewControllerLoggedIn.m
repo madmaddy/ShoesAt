@@ -9,21 +9,39 @@
 #import "ViewControllerLoggedIn.h"
 #import "ViewController.h"
 #import "CustomCell.h"
+#import <Parse/Parse.h>
+#import <CoreData/CoreData.h>
+#import <ParseUI/ParseUI.h>
+#import "DetailsViewController.h"
 
-@implementation ViewControllerLoggedIn
+
+@implementation ViewControllerLoggedIn{
+    unsigned long total2;
+    
+}
 
 @synthesize tableViewTrips;
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    
+}
+
 - (IBAction)addTrip:(id)sender {
-      [self performSegueWithIdentifier:@"addTrip" sender:self];
+     // [self performSegueWithIdentifier:@"addTrip" sender:self];
 }
 - (IBAction)goToTrips:(id)sender {
-    [self performSegueWithIdentifier:@"trips" sender:self];
+   // [self performSegueWithIdentifier:@"trips" sender:self];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    PFQuery *query = [PFQuery queryWithClassName:@"trip"];
     
-    return 10;
+    [query whereKey:@"username" equalTo:usernameGlobal];
+    NSLog(@"user:%@", usernameGlobal);
+    objects = [query findObjects];
+ 
+    return objects.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -46,15 +64,16 @@
     }
     
     cell.pinTrip.image = [UIImage imageNamed:@"pin.png"];
-    cell.title.text = [NSString stringWithFormat:@"My trip%ld", (long)indexPath.row];
+    cell.title.text = [NSString stringWithFormat:@"My trip to %@", [[objects objectAtIndex:indexPath.row] valueForKey:@"country"]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"details" sender:self];
+    //[self performSegueWithIdentifier:@"details" sender:self];
     NSLog(@"selected:%ld", (long)indexPath.row);
+    selectedRow = (int) indexPath.row;
     
 }
 

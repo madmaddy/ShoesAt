@@ -8,10 +8,15 @@
 
 #import "ViewController.h"
 #import "ViewControllerLoggedIn.h"
+#import "DetailsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 
-@interface ViewController ()
+@interface ViewController (){
+    NSUserDefaults *info;
+    int logged;
+}
 
 @end
 
@@ -21,15 +26,30 @@
 @synthesize passFiedl;
 @synthesize signInBtn;
 @synthesize grayView;
-
-
-
+@synthesize emailFiedl;
+/*
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
     NSLog(@"email address %@",[user objectForKey:@"email"]);
     NSLog(@"Token Return %@",[FBSession activeSession].accessTokenData);
-    [self performSegueWithIdentifier:@"profile" sender:self];
+    [self performSegueWithIdentifier:@"goToProfile" sender:self];
 
-   }
+   }*/
+
+-(void)viewDidAppear:(BOOL)animated{
+
+    PFUser *currentUser = [PFUser currentUser];
+    usernameGlobal = currentUser.username;
+    NSLog(@"logged:%d", logged);
+    if (currentUser) {
+      [self performSegueWithIdentifier:@"profile" sender:self];
+        
+    } else {
+        NSLog(@"user not okei");
+    }
+    
+   
+  
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,34 +72,85 @@
    // lineView.backgroundColor = [UIColor blackColor];
     //[self.view addSubview:lineView];
     /*
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];*/
     
     FBLoginView *loginView = [[FBLoginView alloc] init];
     loginView.frame = CGRectMake(50, 420, loginView.frame.size.width, loginView.frame.size.height);
    // loginView.center = self.view.center;
-    [self.view addSubview:loginView];
+    [self.view addSubview:loginView];*/
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)signInClicked:(id)sender {
-    [self performSegueWithIdentifier:@"profile" sender:self];
 
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
-    if([[segue identifier] isEqualToString:@"profile"])
-    {
-        //ViewControllerLoggedIn *RVC = [segue destinationViewController];
-        
-    }
-    
+    [self.userFiedl resignFirstResponder];
+    [self.passFiedl resignFirstResponder];
+    [self.emailFiedl resignFirstResponder];
 }
 
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField){
+        [textField resignFirstResponder];
+    }
+    return NO ;
+}
+- (IBAction)signInClicked:(id)sender {
+   
+        PFUser *user = [PFUser user];
+        user.username = userFiedl.text;
+        user.password = passFiedl.text;
+        user.email = emailFiedl.text;
+    
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                 info = [NSUserDefaults standardUserDefaults];
+                 [info setObject:userFiedl.text forKey:@"username"];
+                 [info setObject:passFiedl.text forKey:@"password"];
+                 [info setObject:emailFiedl.text forKey:@"email"];
+            
+                // [self performSegueWithIdentifier:@"goToProfile" sender:self];
+            } else {
+                NSString *errorString = [error userInfo][@"error"];
+                NSLog(@"%@", errorString);
+                [self alertStatus:@"Error":errorString];
+            }
+        }];
+    
+   
+
+}
+
+
+- (IBAction)loginClicked:(id)sender {
+    NSString *theUsername = [info stringForKey:@"username"];
+    NSString *thePass = [info stringForKey:@"password"];
+    NSLog(@"%@ %@", theUsername, thePass);
+    if(![theUsername isEqualToString:@""]){
+        // NSString *theEmail = [info stringForKey:@"email"];
+        [PFUser logInWithUsernameInBackground:theUsername password:thePass
+                                        block:^(PFUser *user, NSError *error) {
+                                            if (user) {
+                                               // [self performSegueWithIdentifier:@"profile" sender:self];
+                                            } else {
+                                                NSLog(@"Login failed");
+                                                userFiedl.text = @"";
+                                                passFiedl.text = @"";
+                                                emailFiedl.text = @"";
+                                            }
+                                        }];
+    }
+}
+
+- (void) alertStatus:(NSString *)msg : (NSString *)title {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message: msg
+                                                       delegate: self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
+}
 
 @end

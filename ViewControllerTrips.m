@@ -11,7 +11,7 @@
 
 @implementation ViewControllerTrips
 - (IBAction)backToMyProfile:(id)sender {
-    [self performSegueWithIdentifier:@"backToProfile" sender:self];
+   // [self performSegueWithIdentifier:@"backToProfile" sender:self];
 }
 
 -(void)viewDidLoad

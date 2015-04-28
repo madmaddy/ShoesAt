@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -37,6 +37,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter e-mail" minimumFontSize="17" id="ON8-Ha-CWs">
+                                        <rect key="frame" x="12" y="245" width="259" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ShoesAt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MET-SY-kq4">
                                         <rect key="frame" x="100" y="29" width="83" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -44,26 +50,44 @@
                                         <color key="textColor" red="0.94841236600000001" green="0.46456963880000002" blue="0.066540470800000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="highlightedColor" red="1" green="0.90072616059999999" blue="0.12527658520000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2m9-in-kj3">
-                                        <rect key="frame" x="95" y="314" width="52" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter password" minimumFontSize="17" id="ZmK-Yt-wDc">
+                                        <rect key="frame" x="12" y="178" width="259" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Sign in">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SHb-RE-vln">
+                                        <rect key="frame" x="12" y="216" width="176" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.94841236600000001" green="0.46456963880000002" blue="0.066540470800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poza-buton.png" id="AyZ-2L-OGw">
+                                        <rect key="frame" x="214" y="317" width="27" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2m9-in-kj3">
+                                        <rect key="frame" x="63" y="314" width="62" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Sign up">
                                             <color key="titleColor" red="0.94841236600000001" green="0.46456963880000002" blue="0.066540470800000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="signInClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z6g-Bg-svH"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poza-buton.png" id="AyZ-2L-OGw">
-                                        <rect key="frame" x="146" y="317" width="27" height="24"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jov-Zs-CFe">
+                                        <rect key="frame" x="133" y="314" width="64" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter password" minimumFontSize="17" id="ZmK-Yt-wDc">
-                                        <rect key="frame" x="12" y="178" width="259" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <state key="normal" title="or Log in">
+                                            <color key="titleColor" red="1" green="0.57244225709999996" blue="0.037502569690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k66-2b-W9H"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93608263036471062" green="0.94295336500392013" blue="0.94841236595174261" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -73,21 +97,22 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
+                        <outlet property="emailFiedl" destination="ON8-Ha-CWs" id="wai-7e-puX"/>
                         <outlet property="grayView" destination="4eF-rZ-cg3" id="EMc-dO-elc"/>
                         <outlet property="passFiedl" destination="ZmK-Yt-wDc" id="gOP-TL-Ys0"/>
                         <outlet property="signInBtn" destination="2m9-in-kj3" id="UId-xR-LlP"/>
                         <outlet property="userFiedl" destination="X7r-0a-8jX" id="evy-w6-DhP"/>
-                        <segue destination="WSI-Ty-h7n" kind="modal" identifier="profile" id="fVX-Yj-Nv9"/>
+                        <segue destination="WSI-Ty-h7n" kind="modal" identifier="profile" id="XGP-gW-ddy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="428" y="245"/>
+            <point key="canvasLocation" x="292" y="335"/>
         </scene>
         <!--View Controller Logged In-->
         <scene sceneID="vlL-EB-xsG">
             <objects>
-                <viewController storyboardIdentifier="profile" autoresizesArchivedViewToFullSize="NO" id="WSI-Ty-h7n" customClass="ViewControllerLoggedIn" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" id="WSI-Ty-h7n" customClass="ViewControllerLoggedIn" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PJo-Ls-fYm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,7 +128,6 @@
                                             <color key="tintColor" red="0.9094768057" green="0.91615225680000001" blue="0.92145609920000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="backToMyProfile:" destination="nzC-z2-bS7" id="Jhw-Qv-qUp"/>
-                                                <segue destination="zUi-L2-KLc" kind="modal" identifier="logout" id="rat-Db-BXN"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -118,9 +142,10 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="1" green="0.99120821179999996" blue="0.82066329039999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="C6G-jU-tLQ" customClass="CustomCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C6G-jU-tLQ" id="vXf-Kq-rx9">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="0f8-9Y-Tnv">
@@ -174,7 +199,6 @@
                                 </state>
                                 <connections>
                                     <action selector="goToTrips:" destination="WSI-Ty-h7n" eventType="touchUpInside" id="C1i-z1-Pqf"/>
-                                    <segue destination="nzC-z2-bS7" kind="modal" identifier="trips" id="efa-oP-OsS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -188,8 +212,6 @@
                     <connections>
                         <outlet property="addTripBtn" destination="VLG-M4-zCn" id="IaS-zk-1Id"/>
                         <outlet property="tableViewTrips" destination="Lbv-1a-4cb" id="9Uj-AJ-iYH"/>
-                        <segue destination="bHG-j9-MfC" kind="modal" identifier="addTrip" id="Joa-AQ-TKf"/>
-                        <segue destination="JEM-2s-WT1" kind="modal" identifier="details" id="skB-Uu-YFR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRa-eH-nyM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -238,6 +260,9 @@
                                         <state key="normal" title="Save trip">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="saveTripClicked:" destination="bHG-j9-MfC" eventType="touchUpInside" id="L3L-He-W8g"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xQS-BA-bq9">
                                         <rect key="frame" x="289" y="379" width="33" height="29"/>
@@ -279,7 +304,6 @@
                                             <color key="tintColor" red="0.9094768057" green="0.91615225680000001" blue="0.92145609920000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="goBackToProfile:" destination="bHG-j9-MfC" id="2sG-Sz-9rH"/>
-                                                <segue destination="WSI-Ty-h7n" kind="modal" identifier="backToProfile" id="i6O-20-XbQ"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -299,8 +323,10 @@
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.99120821179999996" blue="0.82066329039999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="z5R-zW-i3S">
+                                        <rect key="frame" x="0.0" y="22" width="0.0" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z5R-zW-i3S" id="GB3-Ke-hnr">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="1" green="0.99120821179999996" blue="0.82066329039999997" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
@@ -316,21 +342,21 @@
                                 <rect key="frame" x="86" y="124" width="218" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I visited" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ga4-br-bhJ">
                                 <rect key="frame" x="16" y="124" width="67" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...and it was ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DMG-ox-X4N">
                                 <rect key="frame" x="16" y="148" width="297" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -360,7 +386,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1506" y="-451"/>
+            <point key="canvasLocation" x="1682" y="-421"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="x7o-ct-Ixl">
@@ -426,6 +452,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99120821179999996" blue="0.82066329039999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="wxB-vj-050"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
@@ -433,8 +460,8 @@
                         <outlet property="mapView" destination="faX-ye-mq7" id="byp-Nv-esW"/>
                         <outlet property="pageControl" destination="vq1-Ng-zDn" id="ZZI-DN-Ze7"/>
                         <outlet property="scr" destination="kv1-WR-uoa" id="EqX-vW-egY"/>
+                        <outlet property="textView" destination="VN7-Ua-X8i" id="4Fi-eO-jlC"/>
                         <outlet property="viewBackOfScroll" destination="xP3-dI-ekM" id="Cg0-ZZ-fEp"/>
-                        <segue destination="WSI-Ty-h7n" kind="modal" identifier="profile" id="OLi-fS-W6M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmS-Yg-e0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -469,7 +496,7 @@
                                 <rect key="frame" x="0.0" y="362" width="320" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="NYQ-Lh-DnZ">
@@ -484,7 +511,6 @@
                     <connections>
                         <outlet property="accountName" destination="YVI-9R-ALC" id="VXo-7E-bpk"/>
                         <outlet property="accountPicture" destination="NYQ-Lh-DnZ" id="j98-o4-3cl"/>
-                        <segue destination="WSI-Ty-h7n" kind="modal" identifier="backToProfileFromAccount" id="ym9-tt-1hr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzR-9k-pBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -527,7 +553,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollCell" id="KPO-eq-qSe" customClass="CollectionViewCustomCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -559,7 +585,6 @@
                     <size key="freeformSize" width="320" height="480"/>
                     <connections>
                         <outlet property="tripsCollectionView" destination="s0Q-bp-KCV" id="DFS-ok-o7o"/>
-                        <segue destination="WSI-Ty-h7n" kind="modal" identifier="backToProfile" id="J16-9j-1tm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gec-nN-aZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -576,7 +601,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="J16-9j-1tm"/>
-    </inferredMetricsTieBreakers>
 </document>

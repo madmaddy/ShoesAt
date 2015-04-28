@@ -15,7 +15,7 @@
 @synthesize accountPicture;
 
 -(void)viewDidLoad
-{
+{/*
     FBLoginView *loginView = [[FBLoginView alloc] init];
     loginView.frame = CGRectMake(50, 420, loginView.frame.size.width, loginView.frame.size.height);
     [self.view addSubview:loginView];
@@ -43,7 +43,7 @@
         accountPicture.image = [UIImage imageWithData:imageData];
     }];
     
-  
+  */
     CALayer *shLayer4 = self.accountPicture.layer;
     shLayer4.masksToBounds = NO;
     shLayer4.shadowOffset = CGSizeMake(-1.0, 1.0);
@@ -56,7 +56,7 @@
 }
 
 - (IBAction)backToProfileFromAccount:(id)sender {
-    [self performSegueWithIdentifier:@"backToProfileFromAccount" sender:self];
+    //[self performSegueWithIdentifier:@"backToprofile" sender:self];
 }
 
 @end

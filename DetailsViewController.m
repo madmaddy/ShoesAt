@@ -19,9 +19,11 @@
 @synthesize lastPic;
 @synthesize mapView;
 @synthesize back;
+@synthesize textView;
 
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
     NSMutableArray *imgs=[NSMutableArray  arrayWithObjects:
                            
                             [UIImage imageNamed: @"pin.png"],
@@ -33,6 +35,8 @@
     [imgs addObject:[UIImage imageNamed:@"pin2.png"]];
     [imgs addObject:[UIImage imageNamed:@"dash1.png"]];
     [imgs addObject:[UIImage imageNamed:@"dash2.png"]];
+    
+    textView.text = [[objects objectAtIndex:selectedRow] valueForKey:@"tripDetails"];
    
     for(int i=0;i<imgs.count;i++)
     {
@@ -64,9 +68,13 @@
     
     [mapView setCenterCoordinate:location animated:YES];
     
+
+    
     MKCoordinateSpan span =
     { .longitudeDelta = mapView.region.span.longitudeDelta / 450,
         .latitudeDelta  = mapView.region.span.latitudeDelta  / 450};
+    
+    
     
     MKCoordinateRegion region = { .center = location, .span = span };
     [mapView setRegion:region animated:YES];
@@ -74,17 +82,17 @@
     MKPlacemark *mPlacemark = [[MKPlacemark alloc] initWithCoordinate:location addressDictionary:nil] ;
     [mapView addAnnotation:mPlacemark];
   
+
 }
 /*
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     scrollView.userInteractionEnabled = YES;
     int page = scr.contentOffset.x / scr.frame.size.width;
     
     NSLog(@"page:%d", page);
-}
- */
+}*/
+
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     // Update the page when more than 50% of the previous/next page is visible
     CGFloat pageWidth = self.scr.frame.size.width;
@@ -92,6 +100,8 @@
     self.pageControl.currentPage = page;
 }
 - (IBAction)goBackToProfile:(id)sender {
-     [self performSegueWithIdentifier:@"profile" sender:self];
+    
+    // [self performSegueWithIdentifier:@"returnToProfile" sender:self];
 }
+
 @end
