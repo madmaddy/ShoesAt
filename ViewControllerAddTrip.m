@@ -23,7 +23,7 @@
 @synthesize destination;
 @synthesize visitedLabel;
 @synthesize andLabel;
-@synthesize dscriptionField;
+@synthesize dsriptionField;
 @synthesize addPicBtn;
 
 
@@ -31,12 +31,15 @@
 {
     [super viewDidLoad];
     
+    self.searchBar.delegate = self;
+   
+    
     [self.searchBar setPlaceholder:@"Search for a country"];
     
     visitedLabel.hidden = YES;
     destination.hidden = YES;
     andLabel.hidden = YES;
-    dscriptionField.hidden = YES;
+    dsriptionField.hidden = YES;
     
     NSString* path = [[NSBundle mainBundle] pathForResource:@"File"
                                                      ofType:@"txt"];
@@ -114,20 +117,24 @@
     return cell;
 }
 
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         visitedLabel.hidden = NO;
         destination.hidden = NO;
         andLabel.hidden = NO;
-        dscriptionField.hidden = NO;
+        dsriptionField.hidden = NO;
         
         destination.text = [items objectAtIndex:indexPath.row];
         destination.text = [[[tableView cellForRowAtIndexPath:indexPath] textLabel] text];
         [searchBar resignFirstResponder];
         tableView.hidden = YES;
         [self.searchBar setPlaceholder:@"Search for a country"];
-        //[searchBar setShowsCancelButton:NO animated:YES];
-       searchBar.text = @"";
+        
+    
+        [searchBar resignFirstResponder];
+        searchBar.text = @"";
        
     } else {
         // search results table view
@@ -136,8 +143,20 @@
     
     
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+    if (self.dsriptionField.text.length == 0){
+        self.dsriptionField.text = @"describe your trip the best you can";
+        
+        [self.dsriptionField resignFirstResponder];
+    }
+    [self.dsriptionField resignFirstResponder];
+}
+
 - (IBAction)saveTripClicked:(id)sender {
-    NSString *fullTextForTrip = [NSString stringWithFormat:@"I visited %@ and it was %@", destination.text, dscriptionField.text];
+    NSString *fullTextForTrip = [NSString stringWithFormat:@"I visited %@ and it was %@", destination.text, dsriptionField.text];
    
     PFObject *trip = [PFObject objectWithClassName:@"trip"];
     trip[@"username"] = usernameGlobal;
@@ -147,7 +166,7 @@
     [trip saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"saved");
-           // [self performSegueWithIdentifier:@"backToProfile" sender:self];
+           [self performSegueWithIdentifier:@"goBackToProfile" sender:self];
 
         } else {
             NSLog(@"error:%@", error.description);
@@ -164,7 +183,7 @@
 }
 
 - (IBAction)goBackToProfile:(id)sender {
-     // [self performSegueWithIdentifier:@"backToProfile" sender:self];
+      [self performSegueWithIdentifier:@"backToProfile" sender:self];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image2 editingInfo:(NSDictionary *)editingInfo
@@ -217,6 +236,53 @@
     //picker.delegate = self;
     [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]){
+        [textView resignFirstResponder];
+        
+        if (dsriptionField.text.length == 0)
+        {
+            dsriptionField.text = @"describe your trip the best you can";
+            [dsriptionField resignFirstResponder];
+        }
+        
+        return NO;
+    }
+    return YES ;
+}
+
+-(void) textViewDidChange:(UITextView *)textView
+{
+    if (dsriptionField.text.length == 0)
+    {
+        dsriptionField.text = @"describe your trip the best you can";
+        
+        [dsriptionField resignFirstResponder];
+    }
+}
+
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView
+{
+    NSLog(@"a inceput");
+    if ([dsriptionField.text isEqualToString:@"describe your trip the best you can"])
+    {
+        
+        dsriptionField.text = @"";
+    }
+    
+    return YES;
+}
+
+- (void) alertStatus:(NSString *)msg : (NSString *)title {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message: msg
+                                                       delegate: self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 @end

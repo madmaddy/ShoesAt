@@ -28,10 +28,10 @@
 }
 
 - (IBAction)addTrip:(id)sender {
-     // [self performSegueWithIdentifier:@"addTrip" sender:self];
+     [self performSegueWithIdentifier:@"addTrip" sender:self];
 }
 - (IBAction)goToTrips:(id)sender {
-   // [self performSegueWithIdentifier:@"trips" sender:self];
+    [self performSegueWithIdentifier:@"trips" sender:self];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -41,7 +41,7 @@
     NSLog(@"user:%@", usernameGlobal);
     objects = [query findObjects];
  
-    return objects.count;
+    return objects.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -55,25 +55,46 @@
         cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
         
-    if (indexPath.row %2 == 0) {
+    if (indexPath.row %2 == 0 && indexPath.row < objects.count) {
         cell.curvedImage.image = [UIImage imageNamed:@"dash1rev.png"];
          [cell.title setFrame:CGRectMake(cell.title.frame.origin.x, 10.0, cell.title.frame.size.width,cell.title.frame.size.width)];
-    }else{
+        cell.pinTrip.image = [UIImage imageNamed:@"pin.png"];
+        cell.title.text = [NSString stringWithFormat:@"My trip to %@", [[objects objectAtIndex:indexPath.row] valueForKey:@"country"]];
+    }else if (indexPath.row %2 == 1 && indexPath.row < objects.count) {
         cell.curvedImage.image = [UIImage imageNamed:@"dash1.png"];
-      
+        cell.pinTrip.image = [UIImage imageNamed:@"pin.png"];
+        cell.title.text = [NSString stringWithFormat:@"My trip to %@", [[objects objectAtIndex:indexPath.row] valueForKey:@"country"]];
     }
     
-    cell.pinTrip.image = [UIImage imageNamed:@"pin.png"];
-    cell.title.text = [NSString stringWithFormat:@"My trip to %@", [[objects objectAtIndex:indexPath.row] valueForKey:@"country"]];
+    
+    if(indexPath.row == ([objects count])){
+        if (indexPath.row % 2 == 0) {
+            //cell.curvedImage.image = [UIImage imageNamed:@"dash1rev.png"];
+            cell.pinTrip.image = [UIImage imageNamed:@"qmark.png"];
+            cell.title.text = @"Where to now?";
+        }else{
+            //cell.curvedImage.image = [UIImage imageNamed:@"dash1.png"];
+            cell.pinTrip.image = [UIImage imageNamed:@"qmark.png"];
+            cell.title.text = @"Where to now?";
+            
+        }
+    }
+    
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row < [objects count]) {
+        
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"details" sender:self];
+    [self performSegueWithIdentifier:@"details" sender:indexPath];
     NSLog(@"selected:%ld", (long)indexPath.row);
     selectedRow = (int) indexPath.row;
+    }else{
+         [self performSegueWithIdentifier:@"addTrip" sender:self];
+    }
     
 }
 

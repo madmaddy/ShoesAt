@@ -34,6 +34,7 @@
 		A187614E1AC1F9E100F8AAF8 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A187614D1AC1F9E100F8AAF8 /* pin.png */; };
 		A18761501AC1FA3D00F8AAF8 /* pin2.png in Resources */ = {isa = PBXBuildFile; fileRef = A187614F1AC1FA3D00F8AAF8 /* pin2.png */; };
 		A18761531AC1FFF000F8AAF8 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A18761521AC1FFF000F8AAF8 /* DetailsViewController.m */; };
+		A18FAE9D1AEFDCF5008CCDC9 /* qmark.png in Resources */ = {isa = PBXBuildFile; fileRef = A18FAE9C1AEFDCF5008CCDC9 /* qmark.png */; };
 		A196DE661AADEFC600E39712 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A196DE651AADEFC600E39712 /* main.m */; };
 		A196DE691AADEFC600E39712 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A196DE681AADEFC600E39712 /* AppDelegate.m */; };
 		A196DE6C1AADEFC600E39712 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A196DE6B1AADEFC600E39712 /* ViewController.m */; };
@@ -94,6 +95,7 @@
 		A18761511AC1FFF000F8AAF8 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		A18761521AC1FFF000F8AAF8 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		A18761541AC2150400F8AAF8 /* shoes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shoes.jpg; path = ../shoes.jpg; sourceTree = "<group>"; };
+		A18FAE9C1AEFDCF5008CCDC9 /* qmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qmark.png; path = ../../Downloads/qmark.png; sourceTree = "<group>"; };
 		A196DE601AADEFC600E39712 /* ShoesAt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoesAt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A196DE641AADEFC600E39712 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A196DE651AADEFC600E39712 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		A196DE571AADEFC600E39712 = {
 			isa = PBXGroup;
 			children = (
+				A18FAE9C1AEFDCF5008CCDC9 /* qmark.png */,
 				A12513C21ADFE9FA00C2F74D /* Parse.framework */,
 				A12513C31ADFE9FA00C2F74D /* ParseCrashReporting.framework */,
 				A12513C41ADFE9FA00C2F74D /* ParseFacebookUtils.framework */,
@@ -346,6 +349,7 @@
 				A196DE741AADEFC600E39712 /* LaunchScreen.xib in Resources */,
 				A187614E1AC1F9E100F8AAF8 /* pin.png in Resources */,
 				A18761501AC1FA3D00F8AAF8 /* pin2.png in Resources */,
+				A18FAE9D1AEFDCF5008CCDC9 /* qmark.png in Resources */,
 				A18761491AC1EAC600F8AAF8 /* dash2.png in Resources */,
 				A1A516551AC2BA8D00B3498A /* File.txt in Resources */,
 				A196DE711AADEFC600E39712 /* Images.xcassets in Resources */,

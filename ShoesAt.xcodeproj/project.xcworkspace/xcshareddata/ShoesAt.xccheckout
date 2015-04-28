@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>99D677D0-6FC7-4D98-B4DE-C49130723072</string>
 	<key>IDESourceControlProjectName</key>
-	<string>ShoesAt</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>474F7171AD0FDEFF6AA9ECF5F70680228ED4E13C</key>
 		<string>https://github.com/madmaddy/ShoesAt.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ShoesAt.xcodeproj</string>
+	<string>ShoesAt.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>474F7171AD0FDEFF6AA9ECF5F70680228ED4E13C</key>

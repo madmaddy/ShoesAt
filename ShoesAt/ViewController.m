@@ -27,6 +27,8 @@
 @synthesize signInBtn;
 @synthesize grayView;
 @synthesize emailFiedl;
+@synthesize backImageView;
+
 /*
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
     NSLog(@"email address %@",[user objectForKey:@"email"]);
@@ -35,24 +37,37 @@
 
    }*/
 
--(void)viewDidAppear:(BOOL)animated{
 
+-(void)viewWillAppear:(BOOL)animated{
     PFUser *currentUser = [PFUser currentUser];
     usernameGlobal = currentUser.username;
-    NSLog(@"logged:%d", logged);
+    NSLog(@"will");
     if (currentUser) {
-      [self performSegueWithIdentifier:@"profile" sender:self];
+        grayView.hidden = YES;
+        backImageView.hidden = NO;
+        backImageView.image = [UIImage imageNamed:@"shoeb.png"];
+    }
+
+}
+-(void)viewDidAppear:(BOOL)animated{
+   
+    NSLog(@"dest %@",self.presentingViewController.class);
+    PFUser *currentUser = [PFUser currentUser];
+    usernameGlobal = currentUser.username;
+    
+    if (currentUser) {
         
+      [self performSegueWithIdentifier:@"profile" sender:self];
     } else {
         NSLog(@"user not okei");
     }
-    
-   
   
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     
     CALayer *layer = self.grayView.layer;
     [layer setCornerRadius:30.0f];
@@ -111,7 +126,7 @@
                  [info setObject:passFiedl.text forKey:@"password"];
                  [info setObject:emailFiedl.text forKey:@"email"];
             
-                 [self performSegueWithIdentifier:@"goToProfile" sender:self];
+                 [self performSegueWithIdentifier:@"profile" sender:self];
             } else {
                 NSString *errorString = [error userInfo][@"error"];
                 NSLog(@"%@", errorString);
@@ -133,7 +148,7 @@
         [PFUser logInWithUsernameInBackground:theUsername password:thePass
                                         block:^(PFUser *user, NSError *error) {
                                             if (user) {
-                                               // [self performSegueWithIdentifier:@"profile" sender:self];
+                                                [self performSegueWithIdentifier:@"profile" sender:self];
                                             } else {
                                                 NSLog(@"Login failed");
                                                 userFiedl.text = @"";
@@ -152,5 +167,46 @@
                                               otherButtonTitles:nil, nil];
     [alertView show];
 }
+
+- (void) animateTextField: (UITextField *) textField up: (BOOL) up
+{
+    const int movementDistance = 80;
+    const float movementDuration = 0.3f;
+    
+    int movement = ( up ? -movementDistance : movementDuration ) ;
+    
+    [UIView beginAnimations:@"anim" context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
+- (void) animateTextField: (UITextField *) textField down: (BOOL) down
+{
+    const int movementDistance = -80;
+    const float movementDuration = 0.3f;
+    
+    int movement = ( down ? -movementDistance : movementDuration ) ;
+    
+    [UIView beginAnimations:@"anim" context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    NSLog(@"didBegin");
+    [self animateTextField: textField up:YES];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self animateTextField: textField down:YES];
+}
+
+
 
 @end

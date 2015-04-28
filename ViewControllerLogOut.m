@@ -56,7 +56,7 @@
 }
 
 - (IBAction)backToProfileFromAccount:(id)sender {
-    //[self performSegueWithIdentifier:@"backToprofile" sender:self];
+    [self performSegueWithIdentifier:@"backToprofile" sender:self];
 }
 
 @end
