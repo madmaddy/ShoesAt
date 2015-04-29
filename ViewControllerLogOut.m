@@ -7,15 +7,66 @@
 //
 
 #import "ViewControllerLogOut.h"
+#import "ViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 
 @implementation ViewControllerLogOut
 
 @synthesize accountName;
 @synthesize accountPicture;
+@synthesize numberOfTrips;
 
 -(void)viewDidLoad
-{/*
+
+{
+     PFUser *currentUser = [PFUser currentUser];
+    
+    accountName.text = currentUser.username ;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    
+    [query whereKey:@"username" equalTo:usernameGlobal];
+    
+    NSLog(@"usernameGl:%@", usernameGlobal);
+    
+    objects = [query findObjects];
+    
+    PFQuery *queryTrips = [PFQuery queryWithClassName:@"trip"];
+    
+    [queryTrips whereKey:@"username" equalTo:usernameGlobal];
+    
+    
+    NSArray *objects2 = [queryTrips findObjects];
+    
+    if ((unsigned long)objects2.count ==0) {
+        numberOfTrips.text = @"You haven't shared any trips!";
+    }else{
+    
+    numberOfTrips.text = [NSString stringWithFormat:@"You have shared %lu trips!", (unsigned long)objects2.count];
+    }
+    if (currentUser) {
+        NSLog(@"current:%@", currentUser);
+        
+        if (!([currentUser objectForKey:@"userPhoto"] == NULL)) {
+            NSLog(@"a verificat");
+            PFFile *imageFile = [currentUser objectForKey:@"userPhoto"];
+            
+            
+            [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                if (!error) {
+                    accountPicture.image = [UIImage imageWithData:data];}
+            }];
+        }
+            
+        
+    } else {
+     
+    }
+    
+   
+    
+    /*
     FBLoginView *loginView = [[FBLoginView alloc] init];
     loginView.frame = CGRectMake(50, 420, loginView.frame.size.width, loginView.frame.size.height);
     [self.view addSubview:loginView];
@@ -59,4 +110,61 @@
     [self performSegueWithIdentifier:@"backToprofile" sender:self];
 }
 
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+{
+    
+    
+    accountPicture.image = image;
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        NSLog(@"aici in logged");
+        NSData* data = UIImageJPEGRepresentation(accountPicture.image, 0.5f);
+        PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:data];
+        [currentUser addObject:imageFile forKey:@"userPhoto"];
+        [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                // The image has now been uploaded to Parse. Associate it with a new object
+                PFObject* newPhotoObject = [PFObject objectWithClassName:@"PhotoObjectUser"];
+                [newPhotoObject setObject:imageFile forKey:@"image"];
+                [currentUser setObject:imageFile forKey:@"userPhoto"];
+                [[PFUser currentUser] saveInBackground]; 
+                [newPhotoObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (!error) {
+                        NSLog(@"Saved");
+                    }
+                    else{
+                        // Error
+                        NSLog(@"Error: %@ %@", error, [error userInfo]);
+                    }
+                }];
+            }
+        }];
+
+        }
+    [self dismissModalViewControllerAnimated:YES];
+    
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)actionChangePicture:(id)sender {
+    picker = [[UIImagePickerController alloc]init];
+    picker.delegate = self;
+    [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (IBAction)goBackToProfileFromAccount:(id)sender {
+    [self performSegueWithIdentifier:@"goBackToProfileFromAccount" sender:self];
+}
+
+- (IBAction)logOut:(id)sender {
+    [PFUser logOut];
+    [self performSegueWithIdentifier:@"backToProfileAfterLogOut" sender:self];
+}
 @end

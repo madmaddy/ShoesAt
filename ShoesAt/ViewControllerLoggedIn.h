@@ -15,5 +15,7 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIButton *addTripBtn;
 @property (strong, nonatomic) IBOutlet UITableView *tableViewTrips;
+- (IBAction)goToAccount:(id)sender;
+
 
 @end

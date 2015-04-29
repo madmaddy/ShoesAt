@@ -29,6 +29,13 @@
 {
     [super viewDidLoad];
     
+    CALayer *shLayer = tripImage.layer;
+    shLayer.masksToBounds = NO;
+    shLayer.shadowOffset = CGSizeMake(-1.0, 1.0);
+    shLayer.shadowColor = [[UIColor grayColor] CGColor];
+    shLayer.shadowRadius = 2.0f;
+    shLayer.shadowOpacity = 0.80f;
+    
     PFFile *imageFile = [[objects objectAtIndex:selectedRow] valueForKey:@"picture1"];
     [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
@@ -102,7 +109,7 @@
     self.pageControl.currentPage = page;
 }
 - (IBAction)goBackToProfile:(id)sender {
-    
+    [self performSegueWithIdentifier:@"backToProfileFromDetails" sender:self];
 }
 
 @end

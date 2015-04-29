@@ -12,6 +12,8 @@
 	<dict>
 		<key>474F7171AD0FDEFF6AA9ECF5F70680228ED4E13C</key>
 		<string>https://github.com/madmaddy/ShoesAt.git</string>
+		<key>93830BD95DEE0A5AE0DB02BF22287B251766C534</key>
+		<string>https://bitbucket.org/madmaddy/easeehelp-mobile.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ShoesAt.xcodeproj/project.xcworkspace</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>474F7171AD0FDEFF6AA9ECF5F70680228ED4E13C</key>
 		<string>../..</string>
+		<key>93830BD95DEE0A5AE0DB02BF22287B251766C534</key>
+		<string>../../../easeeApp%20final%20sync</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/madmaddy/ShoesAt.git</string>
@@ -28,6 +32,22 @@
 	<string>474F7171AD0FDEFF6AA9ECF5F70680228ED4E13C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>93830BD95DEE0A5AE0DB02BF22287B251766C534</string>
+			<key>IDESourceControlWCCName</key>
+			<string>easeeApp%20final%20sync</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>93830BD95DEE0A5AE0DB02BF22287B251766C534</string>
+			<key>IDESourceControlWCCName</key>
+			<string>easeeApp%20new%20design</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

@@ -8,8 +8,16 @@
 
 #import "ViewController.h"
 
-@interface ViewControllerLogOut : ViewController
+@interface ViewControllerLogOut : ViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+{
+    UIImagePickerController *picker;
+}
 @property (strong, nonatomic) IBOutlet UIImageView *accountPicture;
 @property (strong, nonatomic) IBOutlet UILabel *accountName;
+@property (strong, nonatomic) IBOutlet UIButton *changePic;
+- (IBAction)actionChangePicture:(id)sender;
+- (IBAction)goBackToProfileFromAccount:(id)sender;
+- (IBAction)logOut:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *numberOfTrips;
 
 @end

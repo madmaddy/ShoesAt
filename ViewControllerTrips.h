@@ -17,3 +17,5 @@
 
 @property (strong, nonatomic) IBOutlet UICollectionView *tripsCollectionView;
 @end
+
+NSString *idForSelectedCell;

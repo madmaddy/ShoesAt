@@ -50,6 +50,13 @@
 		A1A516581AC306BB00B3498A /* ViewControllerTrips.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A516571AC306BB00B3498A /* ViewControllerTrips.m */; };
 		A1A5165B1AC3083700B3498A /* ViewControllerLogOut.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A5165A1AC3083700B3498A /* ViewControllerLogOut.m */; };
 		A1A5165E1AC314BC00B3498A /* CollectionViewCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A5165D1AC314BC00B3498A /* CollectionViewCustomCell.m */; };
+		A1A778AF1AF0BA65009AEA6F /* nophoto.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A778AE1AF0BA65009AEA6F /* nophoto.png */; };
+		A1A778BC1AF0F5D4009AEA6F /* linie-punctata-1.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A778B91AF0F5D4009AEA6F /* linie-punctata-1.png */; };
+		A1A778BD1AF0F5D4009AEA6F /* linie-punctata-2.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A778BA1AF0F5D4009AEA6F /* linie-punctata-2.png */; };
+		A1A778BE1AF0F5D4009AEA6F /* Untitled-2.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A778BB1AF0F5D4009AEA6F /* Untitled-2.png */; };
+		A1A778C01AF0F98F009AEA6F /* linie-punctata-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A778BF1AF0F98F009AEA6F /* linie-punctata-3.png */; };
+		A1A778C21AF0FBA2009AEA6F /* linie-punctata-4.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A778C11AF0FBA2009AEA6F /* linie-punctata-4.png */; };
+		A1A778C41AF105B4009AEA6F /* icon in Resources */ = {isa = PBXBuildFile; fileRef = A1A778C31AF105B4009AEA6F /* icon */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +129,13 @@
 		A1A5165A1AC3083700B3498A /* ViewControllerLogOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLogOut.m; sourceTree = "<group>"; };
 		A1A5165C1AC314BC00B3498A /* CollectionViewCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCustomCell.h; sourceTree = "<group>"; };
 		A1A5165D1AC314BC00B3498A /* CollectionViewCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCustomCell.m; sourceTree = "<group>"; };
+		A1A778AE1AF0BA65009AEA6F /* nophoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nophoto.png; path = "../easee/easeeApp final/icons/drawable-hdpi/drawable-hdpi/nophoto.png"; sourceTree = "<group>"; };
+		A1A778B91AF0F5D4009AEA6F /* linie-punctata-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "linie-punctata-1.png"; path = "../linie-punctata-1.png"; sourceTree = "<group>"; };
+		A1A778BA1AF0F5D4009AEA6F /* linie-punctata-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "linie-punctata-2.png"; path = "../linie-punctata-2.png"; sourceTree = "<group>"; };
+		A1A778BB1AF0F5D4009AEA6F /* Untitled-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Untitled-2.png"; path = "../Untitled-2.png"; sourceTree = "<group>"; };
+		A1A778BF1AF0F98F009AEA6F /* linie-punctata-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "linie-punctata-3.png"; path = "../linie-punctata-3.png"; sourceTree = "<group>"; };
+		A1A778C11AF0FBA2009AEA6F /* linie-punctata-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "linie-punctata-4.png"; path = "../linie-punctata-4.png"; sourceTree = "<group>"; };
+		A1A778C31AF105B4009AEA6F /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icon; path = ../../Downloads/icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +177,13 @@
 		A196DE571AADEFC600E39712 = {
 			isa = PBXGroup;
 			children = (
+				A1A778C31AF105B4009AEA6F /* icon */,
+				A1A778C11AF0FBA2009AEA6F /* linie-punctata-4.png */,
+				A1A778B91AF0F5D4009AEA6F /* linie-punctata-1.png */,
+				A1A778BF1AF0F98F009AEA6F /* linie-punctata-3.png */,
+				A1A778BA1AF0F5D4009AEA6F /* linie-punctata-2.png */,
+				A1A778BB1AF0F5D4009AEA6F /* Untitled-2.png */,
+				A1A778AE1AF0BA65009AEA6F /* nophoto.png */,
 				A11C37801AF0443D003EBBBC /* DetailsOthersViewController.h */,
 				A11C37811AF0443D003EBBBC /* DetailsOthersViewController.m */,
 				A18FAE9C1AEFDCF5008CCDC9 /* qmark.png */,
@@ -347,16 +368,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				A125139D1ADFE70800C2F74D /* worldcitiespop.txt in Resources */,
+				A1A778C41AF105B4009AEA6F /* icon in Resources */,
 				A1A516511AC2B29500B3498A /* poza-buton.png in Resources */,
 				A196DE6F1AADEFC600E39712 /* Main.storyboard in Resources */,
+				A1A778BC1AF0F5D4009AEA6F /* linie-punctata-1.png in Resources */,
+				A1A778BD1AF0F5D4009AEA6F /* linie-punctata-2.png in Resources */,
+				A1A778C21AF0FBA2009AEA6F /* linie-punctata-4.png in Resources */,
 				A187614C1AC1EB9D00F8AAF8 /* dash1rev.png in Resources */,
 				A1A5164B1AC2AD4200B3498A /* shoeb.png in Resources */,
+				A1A778BE1AF0F5D4009AEA6F /* Untitled-2.png in Resources */,
 				A196DE741AADEFC600E39712 /* LaunchScreen.xib in Resources */,
+				A1A778C01AF0F98F009AEA6F /* linie-punctata-3.png in Resources */,
 				A187614E1AC1F9E100F8AAF8 /* pin.png in Resources */,
 				A18761501AC1FA3D00F8AAF8 /* pin2.png in Resources */,
 				A18FAE9D1AEFDCF5008CCDC9 /* qmark.png in Resources */,
 				A18761491AC1EAC600F8AAF8 /* dash2.png in Resources */,
 				A1A516551AC2BA8D00B3498A /* File.txt in Resources */,
+				A1A778AF1AF0BA65009AEA6F /* nophoto.png in Resources */,
 				A196DE711AADEFC600E39712 /* Images.xcassets in Resources */,
 				A187614A1AC1EAC600F8AAF8 /* dash1.png in Resources */,
 			);
@@ -509,8 +537,8 @@
 		A196DE841AADEFC600E39712 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -518,6 +546,7 @@
 					"/Users/bogdantudor/Downloads/parse-library-1",
 					/Users/bogdantudor/Documents/FacebookSDK,
 					"/Users/bogdantudor/Downloads/parse-library-1-2",
+					"/Users/bogdantudor/Downloads/json-framework-master/build/Debug",
 				);
 				INFOPLIST_FILE = ShoesAt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -530,8 +559,8 @@
 		A196DE851AADEFC600E39712 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -539,6 +568,7 @@
 					"/Users/bogdantudor/Downloads/parse-library-1",
 					/Users/bogdantudor/Documents/FacebookSDK,
 					"/Users/bogdantudor/Downloads/parse-library-1-2",
+					"/Users/bogdantudor/Downloads/json-framework-master/build/Debug",
 				);
 				INFOPLIST_FILE = ShoesAt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;

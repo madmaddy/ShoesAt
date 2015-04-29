@@ -14,5 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *detailButton;
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UIImageView *photoFromTrip;
+@property (strong, nonatomic) IBOutlet UILabel *title2;
+@property (strong, nonatomic) IBOutlet UIImageView *photoFromTrip2;
 
 @end

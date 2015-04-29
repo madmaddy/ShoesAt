@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailsOthersViewController : UIViewController
+@interface DetailsOthersViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIImageView *tripImage;
 @property (strong, nonatomic) IBOutlet UILabel *countryLabel;
 @property (strong, nonatomic) IBOutlet UITextView *descriptionLabel;
+@property (strong, nonatomic) IBOutlet UITextField *comment;
+
+- (IBAction)addComment:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *allComments;
+
 
 
 @end

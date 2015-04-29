@@ -15,7 +15,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *signInBtn;
 @property (strong, nonatomic) IBOutlet UIView *grayView;
 @property (strong, nonatomic) IBOutlet UITextField *emailFiedl;
-- (IBAction)loginClicked:(id)sender;
 @property (strong, nonatomic) IBOutlet UIImageView *backImageView;
 
 

@@ -45,7 +45,7 @@
     if (currentUser) {
         grayView.hidden = YES;
         backImageView.hidden = NO;
-        backImageView.image = [UIImage imageNamed:@"shoeb.png"];
+        backImageView.image = [UIImage imageNamed:@"Untitled-2.png"];
     }
 
 }
@@ -60,7 +60,7 @@
     if (currentUser && ![classCurrent isEqualToString:@"ViewControllerLoggedIn"]) {
         
       [self performSegueWithIdentifier:@"profile" sender:self];
-    } else {
+    } else if(currentUser){
         NSLog(@"user not okei");
     }
   
@@ -120,14 +120,16 @@
         user.username = userFiedl.text;
         user.password = passFiedl.text;
         user.email = emailFiedl.text;
-    
+    NSLog(@"pfuser");
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error) {
+              
                  info = [NSUserDefaults standardUserDefaults];
                  [info setObject:userFiedl.text forKey:@"username"];
                  [info setObject:passFiedl.text forKey:@"password"];
                  [info setObject:emailFiedl.text forKey:@"email"];
-            
+                usernameGlobal = user.username;
+           
                  [self performSegueWithIdentifier:@"profile" sender:self];
             } else {
                 NSString *errorString = [error userInfo][@"error"];
@@ -140,26 +142,6 @@
 
 }
 
-
-- (IBAction)loginClicked:(id)sender {
-    NSString *theUsername = [info stringForKey:@"username"];
-    NSString *thePass = [info stringForKey:@"password"];
-    NSLog(@"%@ %@", theUsername, thePass);
-    if(![theUsername isEqualToString:@""]){
-        // NSString *theEmail = [info stringForKey:@"email"];
-        [PFUser logInWithUsernameInBackground:theUsername password:thePass
-                                        block:^(PFUser *user, NSError *error) {
-                                            if (user) {
-                                                [self performSegueWithIdentifier:@"profile" sender:self];
-                                            } else {
-                                                NSLog(@"Login failed");
-                                                userFiedl.text = @"";
-                                                passFiedl.text = @"";
-                                                emailFiedl.text = @"";
-                                            }
-                                        }];
-    }
-}
 
 - (void) alertStatus:(NSString *)msg : (NSString *)title {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
@@ -200,7 +182,6 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    NSLog(@"didBegin");
     [self animateTextField: textField up:YES];
 }
 

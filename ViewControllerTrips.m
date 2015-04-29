@@ -10,11 +10,12 @@
 #import "CollectionViewCustomCell.h"
 #import "ViewController.h"
 #import "ViewControllerLoggedIn.h"
+#import "DetailsOthersViewController.h"
 #import <Parse/Parse.h>
 
 @implementation ViewControllerTrips{
     NSMutableArray *objectsAll;
-    NSString *idForSelectedCell;
+    
 }
 - (IBAction)backToMyProfile:(id)sender {
    [self performSegueWithIdentifier:@"backFromTripsToProfile" sender:self];
@@ -44,6 +45,12 @@
     PFFile *imageFile = [[objects objectAtIndex:indexPath.row] valueForKey:@"picture1"];
     [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
+            CALayer *shLayer = cell.cellImage.layer;
+            shLayer.masksToBounds = NO;
+            shLayer.shadowOffset = CGSizeMake(-1.0, 1.0);
+            shLayer.shadowColor = [[UIColor grayColor] CGColor];
+            shLayer.shadowRadius = 2.0f;
+            shLayer.shadowOpacity = 0.80f;
             cell.cellImage.image = [UIImage imageWithData:data];}
     }];
 

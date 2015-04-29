@@ -7,6 +7,7 @@
 //
 
 #import "ViewControllerLoggedIn.h"
+#import "ViewControllerLogOut.h"
 #import "ViewController.h"
 #import "CustomCell.h"
 #import <Parse/Parse.h>
@@ -27,9 +28,13 @@
     
 }
 
-- (IBAction)addTrip:(id)sender {
-     [self performSegueWithIdentifier:@"addTrip" sender:self];
+
+-(void)viewDidLoad{
+    [super viewDidLoad];
+
 }
+
+
 - (IBAction)goToTrips:(id)sender {
     [self performSegueWithIdentifier:@"trips" sender:self];
 }
@@ -38,7 +43,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"trip"];
     
     [query whereKey:@"username" equalTo:usernameGlobal];
-    NSLog(@"user:%@", usernameGlobal);
+ 
     objects = [query findObjects];
  
     return objects.count + 1;
@@ -56,8 +61,8 @@
     }
         
     if (indexPath.row %2 == 0 && indexPath.row < objects.count) {
-        cell.curvedImage.image = [UIImage imageNamed:@"dash1rev.png"];
-         [cell.title setFrame:CGRectMake(cell.title.frame.origin.x, 10.0, cell.title.frame.size.width,cell.title.frame.size.width)];
+        cell.curvedImage.image = [UIImage imageNamed:@"linie-punctata-1.png"];
+        // [cell.title setFrame:CGRectMake(cell.title.frame.origin.x, 10.0, cell.title.frame.size.width,cell.title.frame.size.width)];
         cell.pinTrip.image = [UIImage imageNamed:@"pin.png"];
         cell.title.text = [NSString stringWithFormat:@"My trip to %@", [[objects objectAtIndex:indexPath.row] valueForKey:@"country"]];
         
@@ -66,13 +71,21 @@
        
         [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             if (!error) {
-                cell.photoFromTrip.image = [UIImage imageWithData:data];}
+                cell.photoFromTrip2.image = [UIImage imageWithData:data];}
         }];
+        CALayer *shLayer = cell.photoFromTrip2.layer;
+        shLayer.masksToBounds = NO;
+        shLayer.shadowOffset = CGSizeMake(-1.0, 1.0);
+        shLayer.shadowColor = [[UIColor grayColor] CGColor];
+        shLayer.shadowRadius = 2.0f;
+        shLayer.shadowOpacity = 0.80f;
+
         
     }else if (indexPath.row %2 == 1 && indexPath.row < objects.count) {
-        cell.curvedImage.image = [UIImage imageNamed:@"dash1.png"];
+         //[cell.title2 setFrame:CGRectMake(cell.title.frame.origin.x, 10.0, cell.title.frame.size.width,cell.title.frame.size.width)];
+        cell.curvedImage.image = [UIImage imageNamed:@"linie-punctata-2.png"];
         cell.pinTrip.image = [UIImage imageNamed:@"pin.png"];
-        cell.title.text = [NSString stringWithFormat:@"My trip to %@", [[objects objectAtIndex:indexPath.row] valueForKey:@"country"]];
+        cell.title2.text = [NSString stringWithFormat:@"My trip to %@", [[objects objectAtIndex:indexPath.row] valueForKey:@"country"]];
         PFFile *imageFile = [[objects objectAtIndex:indexPath.row] objectForKey:@"picture1"];
         
         
@@ -80,18 +93,32 @@
             if (!error) {
                 cell.photoFromTrip.image = [UIImage imageWithData:data];}
         }];
+        
+        CALayer *shLayer = cell.photoFromTrip.layer;
+        shLayer.masksToBounds = NO;
+        shLayer.shadowOffset = CGSizeMake(-1.0, 1.0);
+        shLayer.shadowColor = [[UIColor grayColor] CGColor];
+        shLayer.shadowRadius = 2.0f;
+        shLayer.shadowOpacity = 0.80f;
     }
     
     
     if(indexPath.row == ([objects count])){
+        [cell.title setFrame:CGRectMake(cell.title.frame.origin.x, 10.0, cell.title.frame.size.width,cell.title.frame.size.width)];
+        cell.title.center  = CGPointMake(cell.frame.size.width/2, 75.0);
+        
         if (indexPath.row % 2 == 0) {
-            //cell.curvedImage.image = [UIImage imageNamed:@"dash1rev.png"];
+            cell.curvedImage.image = [UIImage imageNamed:@"linie-punctata-4.png"];
+            [cell.curvedImage setFrame:CGRectMake(cell.curvedImage.frame.origin.x - 70.0, cell.curvedImage.frame.origin.y, cell.frame.size.width, cell.frame.size.height)];
             cell.pinTrip.image = [UIImage imageNamed:@"qmark.png"];
-            cell.title.text = @"Where to now?";
+            cell.title.text = @"Where to now?\nTap to add trip!";
+           
         }else{
-            //cell.curvedImage.image = [UIImage imageNamed:@"dash1.png"];
+            cell.curvedImage.image = [UIImage imageNamed:@"linie-punctata-3.png"];
+            [cell.curvedImage setFrame:CGRectMake(cell.curvedImage.frame.origin.x+ 20.0, cell.curvedImage.frame.origin.y, cell.frame.size.width, cell.frame.size.height)];
             cell.pinTrip.image = [UIImage imageNamed:@"qmark.png"];
-            cell.title.text = @"Where to now?";
+            cell.title.text = @"Where to now?\nTap to add trip!";
+            
           
         }
     }
@@ -115,4 +142,7 @@
 }
 
 
+- (IBAction)goToAccount:(id)sender {
+    [self performSegueWithIdentifier:@"logOut" sender:self];
+}
 @end
