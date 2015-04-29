@@ -748,6 +748,13 @@
                                 <color key="textColor" red="1" green="0.57244225709999996" blue="0.037502569690000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xQl-de-zJO">
+                                <rect key="frame" x="48" y="403" width="214" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="View trips that i like">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.99120821179999996" blue="0.82066329039999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -760,6 +767,7 @@
                         <outlet property="numberOfTrips" destination="ZPN-sV-IKW" id="Lkt-ph-2ef"/>
                         <segue destination="WSI-Ty-h7n" kind="modal" identifier="goBackToProfileFromAccount" id="y6G-OU-fDH"/>
                         <segue destination="BYZ-38-t0r" kind="modal" identifier="backToProfileAfterLogOut" id="L5s-aQ-KXk"/>
+                        <segue destination="CEI-k0-lIY" kind="modal" identifier="mylikes" id="MY8-ih-4sk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzR-9k-pBG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -859,6 +867,28 @@
             </objects>
             <point key="canvasLocation" x="1292" y="964"/>
         </scene>
+        <!--Likes View Controller-->
+        <scene sceneID="uzx-cu-Er3">
+            <objects>
+                <viewController id="CEI-k0-lIY" customClass="LikesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KVI-dG-WCn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TML-hk-gHx">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="0.99120821179999996" blue="0.82066329039999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.57244225709999996" blue="0.037502569690000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o1a-WA-dOs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1774" y="734"/>
+        </scene>
     </scenes>
     <resources>
         <image name="nophoto.png" width="250" height="250"/>
@@ -872,6 +902,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="V5p-83-BnW"/>
-        <segue reference="Wj6-vQ-roA"/>
+        <segue reference="y6G-OU-fDH"/>
     </inferredMetricsTieBreakers>
 </document>

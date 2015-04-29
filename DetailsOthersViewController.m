@@ -232,7 +232,9 @@
 
 
 - (IBAction)appreciateTrip:(id)sender {
-    PFObject* like = [PFObject objectWithClassName:@"likes"];
+    PFObject* like = [PFObject objectWithClassName:@"liked"];
+    like[@"username"] = usernameGlobal;
+    like[@"tripObjectId"] = idForSelectedCell;
     [self alertStatus:@"YEY" :@"You like this trip!"];
     
 }

@@ -57,6 +57,7 @@
 		A1A778C01AF0F98F009AEA6F /* linie-punctata-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A778BF1AF0F98F009AEA6F /* linie-punctata-3.png */; };
 		A1A778C21AF0FBA2009AEA6F /* linie-punctata-4.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A778C11AF0FBA2009AEA6F /* linie-punctata-4.png */; };
 		A1A778C41AF105B4009AEA6F /* icon in Resources */ = {isa = PBXBuildFile; fileRef = A1A778C31AF105B4009AEA6F /* icon */; };
+		A1DC1BBC1AF13D56005C6979 /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DC1BBB1AF13D56005C6979 /* LikesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,8 @@
 		A1A778BF1AF0F98F009AEA6F /* linie-punctata-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "linie-punctata-3.png"; path = "../linie-punctata-3.png"; sourceTree = "<group>"; };
 		A1A778C11AF0FBA2009AEA6F /* linie-punctata-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "linie-punctata-4.png"; path = "../linie-punctata-4.png"; sourceTree = "<group>"; };
 		A1A778C31AF105B4009AEA6F /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icon; path = ../../Downloads/icon; sourceTree = "<group>"; };
+		A1DC1BBA1AF13D56005C6979 /* LikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesViewController.h; sourceTree = "<group>"; };
+		A1DC1BBB1AF13D56005C6979 /* LikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,8 @@
 		A196DE571AADEFC600E39712 = {
 			isa = PBXGroup;
 			children = (
+				A1DC1BBA1AF13D56005C6979 /* LikesViewController.h */,
+				A1DC1BBB1AF13D56005C6979 /* LikesViewController.m */,
 				A1A778C31AF105B4009AEA6F /* icon */,
 				A1A778C11AF0FBA2009AEA6F /* linie-punctata-4.png */,
 				A1A778B91AF0F5D4009AEA6F /* linie-punctata-1.png */,
@@ -415,6 +420,7 @@
 				A1A5165E1AC314BC00B3498A /* CollectionViewCustomCell.m in Sources */,
 				A1475B311AB0AEEE00D151B9 /* ViewControllerAddTrip.m in Sources */,
 				A1475B2C1AB0A8EC00D151B9 /* ViewControllerLoggedIn.m in Sources */,
+				A1DC1BBC1AF13D56005C6979 /* LikesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
