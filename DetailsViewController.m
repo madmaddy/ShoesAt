@@ -39,9 +39,10 @@
     PFFile *imageFile = [[objects objectAtIndex:selectedRow] valueForKey:@"picture1"];
     [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
-            tripImage.image = [UIImage imageWithData:data];}
+            tripImage.image = [self image:[UIImage imageWithData:data] scaledToSize:CGSizeMake(290, 172)];}
     }];
    
+    textView.textColor = [UIColor colorWithRed:255.0/255.0 green:146.0/255.0 blue:10.0/255.0 alpha:1.0];
     textView.text = [[objects objectAtIndex:selectedRow] valueForKey:@"tripDetails"];
     destination.text = [[objects objectAtIndex:selectedRow] valueForKey:@"country"];
    /*
@@ -110,6 +111,15 @@
 }
 - (IBAction)goBackToProfile:(id)sender {
     [self performSegueWithIdentifier:@"backToProfileFromDetails" sender:self];
+}
+
+- (UIImage *) image:(UIImage *)image scaledToSize:(CGSize)newSize;
+{
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, image.scale);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 @end

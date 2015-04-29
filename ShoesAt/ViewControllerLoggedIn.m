@@ -22,6 +22,7 @@
 }
 
 @synthesize tableViewTrips;
+@synthesize greatView;
 
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -31,7 +32,7 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-
+    
 }
 
 
@@ -64,6 +65,7 @@
         cell.curvedImage.image = [UIImage imageNamed:@"linie-punctata-1.png"];
         // [cell.title setFrame:CGRectMake(cell.title.frame.origin.x, 10.0, cell.title.frame.size.width,cell.title.frame.size.width)];
         cell.pinTrip.image = [UIImage imageNamed:@"pin.png"];
+        
         cell.title.text = [NSString stringWithFormat:@"My trip to %@", [[objects objectAtIndex:indexPath.row] valueForKey:@"country"]];
         
         PFFile *imageFile = [[objects objectAtIndex:indexPath.row] objectForKey:@"picture1"];
@@ -71,7 +73,9 @@
        
         [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             if (!error) {
-                cell.photoFromTrip2.image = [UIImage imageWithData:data];}
+                //cell.photoFromTrip2.image = [UIImage imageWithData:data];
+            cell.photoFromTrip2.image = [self image:[UIImage imageWithData:data] scaledToSize:CGSizeMake(50, 50)];
+            }
         }];
         CALayer *shLayer = cell.photoFromTrip2.layer;
         shLayer.masksToBounds = NO;
@@ -80,6 +84,7 @@
         shLayer.shadowRadius = 2.0f;
         shLayer.shadowOpacity = 0.80f;
 
+        NSLog(@"sizePh:%f, %f", cell.photoFromTrip2.image.size.height, cell.photoFromTrip2.image.size.width);
         
     }else if (indexPath.row %2 == 1 && indexPath.row < objects.count) {
          //[cell.title2 setFrame:CGRectMake(cell.title.frame.origin.x, 10.0, cell.title.frame.size.width,cell.title.frame.size.width)];
@@ -91,7 +96,9 @@
         
         [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             if (!error) {
-                cell.photoFromTrip.image = [UIImage imageWithData:data];}
+               // cell.photoFromTrip.image = [UIImage imageWithData:data];
+            cell.photoFromTrip.image = [self image:[UIImage imageWithData:data] scaledToSize:CGSizeMake(50, 50)];
+            }
         }];
         
         CALayer *shLayer = cell.photoFromTrip.layer;
@@ -100,6 +107,7 @@
         shLayer.shadowColor = [[UIColor grayColor] CGColor];
         shLayer.shadowRadius = 2.0f;
         shLayer.shadowOpacity = 0.80f;
+        NSLog(@"sizePh:%f, %f", cell.photoFromTrip.image.size.height, cell.photoFromTrip.image.size.width);
     }
     
     
@@ -123,6 +131,11 @@
         }
     }
     
+    if ([objects count] == 0) {
+        cell.curvedImage.hidden = YES;
+    }
+    
+   
     
     return cell;
 }
@@ -145,4 +158,15 @@
 - (IBAction)goToAccount:(id)sender {
     [self performSegueWithIdentifier:@"logOut" sender:self];
 }
+
+- (UIImage *) image:(UIImage *)image scaledToSize:(CGSize)newSize;
+{
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, image.scale);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+
 @end

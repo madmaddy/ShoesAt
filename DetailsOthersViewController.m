@@ -23,13 +23,25 @@
 @synthesize countryLabel;
 @synthesize comment;
 @synthesize allComments;
+@synthesize noComments;
 
 -(void) viewDidLoad{
+    
+    
     
     self.comment.delegate = self;
     
     self.allComments.delegate = self;
     self.allComments.dataSource = self;
+    
+    if(objectComments.count == 0){
+        NSLog(@"empty");
+        allComments.hidden = TRUE;
+        noComments.hidden = FALSE;
+    }else{
+        allComments.hidden = FALSE;
+        noComments.hidden = TRUE;
+    }
     
     CALayer *shLayer = tripImage.layer;
     shLayer.masksToBounds = NO;
@@ -63,7 +75,7 @@
     PFFile *imageFile = [[objectsOthers objectAtIndex:0] valueForKey:@"picture1"];
     [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
-            tripImage.image = [UIImage imageWithData:data];}
+            tripImage.image = [self image:[UIImage imageWithData:data] scaledToSize:CGSizeMake(120,120)];}
     }];
     
     descriptionLabel.text = [[objects objectAtIndex:0] valueForKey:@"tripDetails"];
@@ -154,7 +166,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     PFQuery *query = [PFQuery queryWithClassName:@"comment"];
     
-    [query whereKey:@"username" equalTo:usernameGlobal];
+    [query whereKey:@"tripObjectId" equalTo:idForSelectedCell];
     
     objectComments = [query findObjects];
     
@@ -176,7 +188,19 @@
     NSLog(@"le:%lu", (unsigned long)length);
     cell.detailTextLabel.text = [NSString stringWithFormat:@"by %@ at %@",[[objectComments objectAtIndex:indexPath.row] valueForKey:@"username"],[commentDateStr substringToIndex:length]];
     cell.textLabel.text = [[objectComments objectAtIndex:indexPath.row] valueForKey:@"message"];
+    if(indexPath.row > [objectComments count]){
+       allComments.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        allComments.separatorColor = [UIColor clearColor];
+    }
     
+    if(objectComments.count == 0){
+        NSLog(@"empty");
+        allComments.hidden = TRUE;
+        noComments.hidden = FALSE;
+    }else{
+        allComments.hidden = FALSE;
+        noComments.hidden = TRUE;
+    }
     
     return cell;
 }
@@ -197,7 +221,19 @@
     return NO ;
 }
 
+- (UIImage *) image:(UIImage *)image scaledToSize:(CGSize)newSize;
+{
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, image.scale);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 
 
-
+- (IBAction)appreciateTrip:(id)sender {
+    PFObject* like = [PFObject objectWithClassName:@"likes"];
+    [self alertStatus:@"YEY" :@"You like this trip!"];
+    
+}
 @end

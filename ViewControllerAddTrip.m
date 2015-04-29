@@ -290,7 +290,7 @@
     shLayer.shadowColor = [[UIColor grayColor] CGColor];
     shLayer.shadowRadius = 2.0f;
     shLayer.shadowOpacity = 0.80f;
-    photoView.image = image;
+    photoView.image = [self image:image scaledToSize:CGSizeMake(136, 110)];
     NSLog(@"picked");
     //[self dismissViewControllerAnimated:YES completion:NULL];
     [self dismissModalViewControllerAnimated:YES];
@@ -391,6 +391,15 @@
     NSLog(@"View Controller get Location Latitute : %f",center.longitude);
     return center;
     
+}
+
+- (UIImage *) image:(UIImage *)image scaledToSize:(CGSize)newSize;
+{
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, image.scale);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 @end

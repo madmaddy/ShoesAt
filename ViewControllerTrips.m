@@ -51,7 +51,7 @@
             shLayer.shadowColor = [[UIColor grayColor] CGColor];
             shLayer.shadowRadius = 2.0f;
             shLayer.shadowOpacity = 0.80f;
-            cell.cellImage.image = [UIImage imageWithData:data];}
+            cell.cellImage.image = [self image:[UIImage imageWithData:data] scaledToSize:CGSizeMake(139, 70)];}
     }];
 
     cell.cellLabel.text = [NSString stringWithFormat:@"%@\nby %@",[[objects objectAtIndex:indexPath.row] valueForKey:@"country"],[[objects objectAtIndex:indexPath.row] valueForKey:@"username"] ];
@@ -66,5 +66,15 @@
     
     [self performSegueWithIdentifier:@"detailsOthers" sender:self];
     
+}
+
+
+- (UIImage *) image:(UIImage *)image scaledToSize:(CGSize)newSize;
+{
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, image.scale);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 @end

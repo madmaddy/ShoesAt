@@ -16,7 +16,9 @@
 
 - (IBAction)addComment:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *allComments;
+@property (strong, nonatomic) IBOutlet UILabel *noComments;
 
+- (IBAction)appreciateTrip:(id)sender;
 
 
 @end
